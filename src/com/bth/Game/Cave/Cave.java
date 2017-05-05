@@ -3,7 +3,9 @@ package com.bth.Game.Cave;
 import com.bth.Game.Character.CharacterEntity;
 import com.bth.Game.Item.Item;
 import com.bth.Game.Movement;
+import com.bth.Game.Util.Entity;
 import com.bth.Game.Util.FileReader;
+import com.bth.Game.Util.MapEntityMapper;
 import com.bth.Game.Util.MapLoader;
 
 import java.util.HashMap;
@@ -17,7 +19,7 @@ public class Cave {
     private List<Item> items;
     private List<CharacterEntity> characters;
     private String mapPath;
-    private char[][] mapData;
+    private Entity[][] mapData;
 
     Cave(int id, String name, String mapPath) {
         this.id = id;
@@ -55,54 +57,48 @@ public class Cave {
         int playerX = playerPos.get('x');
         int playerY = playerPos.get('y');
 
+        int width = mapData[playerY].length - 1;
+        int height = mapData.length - 1;
+
+        boolean moveable = false;
+
         switch (movement) {
             case WEST:
-                if (playerX == 0) {
-                    return false;
-                }
+                moveable =  !(playerX == 0 ||
+                        Rock.class.isInstance(this.getEntityAtPos(playerX - 1, playerY)));
 
-                if (mapData[playerY][playerX - 1] == '-') {
-                    return true;
-                }
-
-                break;
+            break;
 
             case EAST:
-                if (playerX >= mapData[playerY].length - 1) {
-                    return false;
-                }
+                moveable = !(playerX >= width ||
+                        Rock.class.isInstance(this.getEntityAtPos(playerX + 1, playerY)));
 
-                if (mapData[playerY][playerX + 1] == '-') {
-                    return true;
-                }
-
-                break;
+            break;
 
             case SOUTH:
-                if (playerY == mapData.length - 1) {
-                    return false;
-                }
+                moveable =  !(playerY == height ||
+                        Rock.class.isInstance(this.getEntityAtPos(playerX, playerY + 1)));
 
-                if (mapData[playerY + 1][playerX] == '-') {
-                    return true;
-                }
-
-                break;
+            break;
 
             case NORTH:
-                if (playerY == 0) {
-                    return false;
-                }
-
-                if (mapData[playerY - 1][playerX] == '-') {
-                    return true;
-                }
-
-                break;
+                moveable = !(playerY == 0 ||
+                        Rock.class.isInstance(this.getEntityAtPos(playerX, playerY - 1)));
+            break;
             default:
         }
 
-        return false;
+        return moveable;
+    }
+
+    /**
+     * Get the entity in the cave map by coords
+     * @param x     X coordinate
+     * @param y     Y coordinate
+     * @return  The char
+     */
+    public Entity getEntityAtPos(int x, int y) {
+        return this.mapData[y][x];
     }
 
     /**
@@ -157,7 +153,7 @@ public class Cave {
      * Getter for the map data
      * @return  Map data
      */
-    public char[][] getMapData() {
+    public Entity[][] getMapData() {
         return mapData;
     }
 
@@ -165,7 +161,7 @@ public class Cave {
      * Setter for map data
      * @param mapData   Map data
      */
-    public void setMapData(char[][] mapData) {
+    public void setMapData(Entity[][] mapData) {
         this.mapData = mapData;
     }
 

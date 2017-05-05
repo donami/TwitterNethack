@@ -1,5 +1,8 @@
 package com.bth.Game.Player;
 
+
+import com.bth.Game.Util.Entity;
+
 public class Player {
     private int health;
     private Backpack backpack;
@@ -39,6 +42,14 @@ public class Player {
      */
     public int setHealth(int health) {
         this.health = health;
+        return this.health;
+    }
+
+    /**
+     * Getter for the health
+     * @return  The player's health
+     */
+    public int getHealth() {
         return this.health;
     }
 

@@ -15,29 +15,30 @@ public class MapLoader extends FileReader {
      * Load the map from text file and add it to the multidimensional array
      * @return  Map data
      */
-    public char[][] loadMap() {
+    public Entity[][] loadMap() {
         List<String> content = this.getContents();
 
-        char[][] map = new char[this.rows][cols];
+        Entity[][] entityMap = new Entity[this.rows][this.cols];
 
         int i = 0;
         for (String line : content) {
              for (int x = 0; x < line.length(); x++) {
                 char currentChar = line.charAt(x);
-                map[i][x] = currentChar;
+                entityMap[i][x] = MapEntityMapper.entityMap.get(currentChar);
 
             }
             i++;
         }
 
-        return map;
+        return entityMap;
     }
 
     /**
-     * Used for easier debugging
+     * Debug: Used for easier debugging
+     * TODO: 2017-05-05 remove this later
      * @param map   Map data
      */
-    private void printMap(char[][] map) {
+    public void printMap(char[][] map) {
         for (char[] container : map) {
             for (char c : container) {
                 System.out.print(c);

@@ -1,9 +1,10 @@
 package com.bth.Game.Character;
 
-/**
- * Created by markus on 2017-05-04.
- */
-public class CharacterEntity {
+import com.bth.Game.Util.Collision;
+import com.bth.Game.Util.Entity;
+
+
+public class CharacterEntity implements Entity {
     CharacterEntity() {
         this.initialize();
     }
@@ -13,5 +14,9 @@ public class CharacterEntity {
      */
     private void initialize() {
 
+    }
+
+    public Collision.Dialogs collide() {
+        return Collision.Dialogs.DO_NOTHING;
     }
 }

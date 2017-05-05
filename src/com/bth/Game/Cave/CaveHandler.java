@@ -1,5 +1,9 @@
 package com.bth.Game.Cave;
 
+import com.bth.Game.Movement;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -27,6 +31,30 @@ public class CaveHandler {
         Cave cave = new Cave(id, name, "map.txt");
         this.caves.add(cave);
         return cave;
+    }
+
+    /**
+     * Return a list of possible moves
+     * @param cave  The cave
+     * @param position  The current position
+     * @return  List of possible moves
+     */
+    public ArrayList<String> getPossibleMoves(Cave cave, HashMap<Character, Integer> position) {
+        ArrayList<String> possibleMoves = new ArrayList<>();
+
+        if (cave.validateMove(Movement.NORTH, position))
+            possibleMoves.add("north");
+
+        if (cave.validateMove(Movement.SOUTH, position))
+            possibleMoves.add("south");
+
+        if (cave.validateMove(Movement.EAST, position))
+            possibleMoves.add("east");
+
+        if (cave.validateMove(Movement.WEST, position))
+            possibleMoves.add("west");
+
+        return possibleMoves;
     }
 
     /**

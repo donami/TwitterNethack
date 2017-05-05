@@ -1,5 +1,7 @@
 package com.bth.Game.Item;
 
+import com.bth.Game.Util.Input;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -41,7 +43,21 @@ public class ItemHandler {
      * @param item  The item to save
      * @return  The answer
      */
-//    public String itemSaveDialog(Item item) {
-//
-//    }
+    public String itemSaveDialog(Item item) {
+        System.out.println("You can either use it now, or save it to your backpack to use it later");
+        System.out.println("Type \"save\" to save it, or \"use\" to use it now");
+
+        boolean validAnswer = false;
+        String answer;
+
+        do {
+            answer = Input.getInput();
+
+            if (answer.equals("save") || answer.equals("use")) {
+                validAnswer = true;
+            }
+        } while (!validAnswer);
+
+        return answer;
+    }
 }

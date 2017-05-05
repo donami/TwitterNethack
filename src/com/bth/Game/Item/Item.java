@@ -1,20 +1,17 @@
 package com.bth.Game.Item;
 
-public class Item {
+import com.bth.Game.Util.Entity;
+
+interface ItemInterface {
+    void use();
+}
+
+public abstract class Item implements Entity, ItemInterface {
     private int id;
-    private String name;
-    private String description;
+    String name;
+    String description;
     private String defaultAction;
-    
-    public Item() {
 
-    }
-
-    public void use() {
-        // TODO: 2017-05-04 implement
-    }
-    
-    
     /**
      * Getter for ID
      * @return  The ID
