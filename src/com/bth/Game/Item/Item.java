@@ -96,8 +96,6 @@ public abstract class Item implements Entity, ItemInterface, Subject {
     @Override
     public void notifyObservers(Action action, Object value) {
         for (Observer ob : observers) {
-            System.out
-                    .println("Notifying Observers on change in Loan interest rate");
             ob.update(action, value);
         }
     }
