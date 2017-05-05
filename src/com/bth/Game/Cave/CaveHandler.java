@@ -58,6 +58,16 @@ public class CaveHandler {
     }
 
     /**
+     * Remove entity from cave
+     * @param cave  The cave to modify
+     * @param x X-coordinate
+     * @param y Y-coordinate
+     */
+    public void removeEntityFromCave(Cave cave, int x, int y) {
+        cave.removeEntityAtPos(x, y);
+    }
+
+    /**
      * Attempt to move the player
      * @param direction The direction to move the player
      * @return  True if move was successful, else false

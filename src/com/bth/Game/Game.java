@@ -15,6 +15,7 @@ import com.bth.Game.Util.Observer.Observer;
 import com.bth.Game.Util.Printer;
 
 import java.util.ArrayList;
+import java.util.EnumMap;
 import java.util.HashMap;
 
 public class Game extends State {
@@ -26,6 +27,7 @@ public class Game extends State {
     private Printer printer;
     private Cave currentCave;
     private int numberOfCaves = 1;
+    private ItemObserver itemObs = new ItemObserver();
 
     private HashMap<Character, Integer> playerPos = new HashMap<>();
 
@@ -73,6 +75,12 @@ public class Game extends State {
             Commands command;
 
             do {
+                // Ensure that player has health, otherwise game is over
+                if (this.player.getHealth() <= 0) {
+                    this.player.die();
+                    this.endGameSession();
+                }
+
                 possibleMoves = this.caveHandler.getPossibleMoves(this.currentCave, this.playerPos);
 
                 command = this.printer.showGameDialog();
@@ -95,6 +103,25 @@ public class Game extends State {
                         break;
                     case HEALTH:
                         this.printer.printCurrentHealth(this.player.getHealth());
+                        break;
+                    case OPEN_BACKPACK:
+                        this.player.getBackpack().setOpen(true);
+                        EnumMap<Action, Item> action = this.player.getBackpack().printBackpack();
+
+                        // Handle user response
+                        if (action.containsKey(Action.USE_ITEM)) {
+                            Item item = action.get(Action.USE_ITEM);
+                            // Use the item
+                            item.use();
+                            // Remove item from backpack after use
+                            player.getBackpack().getItems().remove(item);
+                            item.removeObserver(this.itemObs);
+                        }
+                        else if (action.containsKey(Action.CLOSE_BACKPACK)) {
+                            // Close backpack
+                            this.player.getBackpack().setOpen(false);
+                        }
+
                         break;
                     default:
                 }
@@ -148,15 +175,18 @@ public class Game extends State {
                 String answer = this.itemHandler.itemSaveDialog(item);
 
                 // Add observer
-                ItemObserver itemObs = new ItemObserver();
-                item.registerObserver(itemObs);
+                item.registerObserver(this.itemObs);
 
                 if (answer.equals("save")) {
                     // Add the item to the backpack
                     this.player.getBackpack().addItem(item);
+                    // Remove item from cave
+                    this.caveHandler.removeEntityFromCave(this.currentCave, this.playerPos.get('x'), this.playerPos.get('y'));
                 }
                 else if (answer.equals("use")) {
                     item.use();
+                    // Remove item from cave
+                    this.caveHandler.removeEntityFromCave(this.currentCave, this.playerPos.get('x'), this.playerPos.get('y'));
                 }
 
                 break;

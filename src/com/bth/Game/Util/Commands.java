@@ -9,5 +9,6 @@ public enum Commands {
     MOVE_SOUTH,
     UNKNOWN,
     QUIT,
-    AVAILABLE_MOVES
+    AVAILABLE_MOVES,
+    OPEN_BACKPACK
 }

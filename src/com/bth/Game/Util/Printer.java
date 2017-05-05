@@ -1,12 +1,13 @@
 package com.bth.Game.Util;
 
+import com.bth.Game.Item.Item;
+import com.bth.Game.Util.Observer.Action;
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class Printer {
     public Printer() {
@@ -29,6 +30,7 @@ public class Printer {
                 put("health", Commands.HEALTH);
                 put("quit", Commands.QUIT);
                 put("moves", Commands.AVAILABLE_MOVES);
+                put("open backpack", Commands.OPEN_BACKPACK);
             }
         };
 
@@ -57,6 +59,7 @@ public class Printer {
                 System.out.println("\tAvailable commands:");
                 System.out.println("\t\thealth: Display your current health");
                 System.out.println("\t\tmove <direction>: Move in specific direction, valid directions are: north, south, west, east");
+                System.out.println("\t\topen backpack: Open your backpack and display it's content");
                 System.out.println("\t\tmoves: Display available moves");
                 System.out.println("\t\tquit: Exit the game");
                 break;
@@ -73,6 +76,8 @@ public class Printer {
             case HEALTH:
                 break;
             case QUIT:
+                break;
+            case OPEN_BACKPACK:
                 break;
             case UNKNOWN:
             default:

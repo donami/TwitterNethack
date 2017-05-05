@@ -14,6 +14,9 @@ public class Potion extends Item {
         this.description = "Use this to increase your health by " + this.health;
     }
 
+    /**
+     * Use the item
+     */
     public void use() {
         this.notifyObservers(Action.INCREASE_HEALTH, this.health);
     }

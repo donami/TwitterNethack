@@ -1,7 +1,11 @@
 package com.bth.Game.Player;
 
 import com.bth.Game.Item.Item;
+import com.bth.Game.Util.Input;
+import com.bth.Game.Util.Observer.Action;
+import org.apache.commons.lang.StringUtils;
 
+import java.util.EnumMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -19,6 +23,61 @@ public class Backpack {
     private void initialize() {
         this.items = new LinkedList<>();
         this.open = false;
+    }
+
+    /**
+     * Print the contents of the backpack and display dialog
+     */
+    public EnumMap<Action, Item> printBackpack() {
+        List<Item> items = this.getItems();
+        EnumMap<Action, Item> map = new EnumMap<>(Action.class);
+
+        // Check if the backpack has items
+        if (items.size() <= 0) {
+            System.out.println("\tYour backpack is empty");
+            map.put(Action.DO_NOTHING, null);
+            return map;
+        }
+
+        System.out.println("\tYou open your backpack and you find the following items:");
+        items.forEach(item -> System.out.println("\t\t- " + item.getName()));
+
+        System.out.println("Enter \"use [itemname]\" to use the item, enter \"close\" to close the backpack");
+
+        boolean validAnswer = false;
+        String answer;
+
+        do {
+            answer = Input.getInput();
+
+            String[] parts = answer.split(" ");
+
+            if (parts[0].equals("use") && parts.length == 2) {
+                boolean contains = false;
+
+                // Check if item exists
+                for (Item item : items) {
+                    if (item.getName().equals(StringUtils.capitalize(parts[1]))) {
+                        contains = true;
+                        validAnswer = true;
+
+                        map.put(Action.USE_ITEM, item);
+                        break;
+                    }
+                }
+
+                if (!contains) {
+                    System.out.println("That item does not seem to be in your backpack");
+                }
+            }
+            else if (parts[0].equals("close")) {
+                validAnswer = true;
+                map.put(Action.CLOSE_BACKPACK, null);
+                System.out.println("\tYou close your backpack");
+            }
+        } while (!validAnswer);
+
+        return map;
     }
 
     /**

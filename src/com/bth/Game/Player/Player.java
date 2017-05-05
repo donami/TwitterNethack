@@ -1,8 +1,5 @@
 package com.bth.Game.Player;
 
-
-import com.bth.Game.Util.Entity;
-
 public class Player {
     private int health;
     private Backpack backpack;
@@ -24,7 +21,8 @@ public class Player {
      */
     public void die() {
         this.health = 0;
-        // TODO: 2017-05-04 More handling here
+
+        System.out.println("\tUh-oh! You are now dead.");
     }
 
     /**

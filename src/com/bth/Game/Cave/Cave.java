@@ -101,6 +101,16 @@ public class Cave {
         return this.mapData[y][x];
     }
 
+
+    /**
+     * Remove entity from cave
+     * @param x X-coordinate
+     * @param y Y-coordinate
+     */
+    public void removeEntityAtPos(int x, int y) {
+        this.mapData[y][x] = new Ground();
+    }
+
     /**
      * Getter for ID
      * @return The ID
