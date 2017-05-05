@@ -1,16 +1,22 @@
 package com.bth.Game.Item;
 
 import com.bth.Game.Util.Entity;
+import com.bth.Game.Util.Observer.Action;
+import com.bth.Game.Util.Observer.Observer;
+import com.bth.Game.Util.Observer.Subject;
+
+import java.util.ArrayList;
 
 interface ItemInterface {
     void use();
 }
 
-public abstract class Item implements Entity, ItemInterface {
+public abstract class Item implements Entity, ItemInterface, Subject {
     private int id;
     String name;
     String description;
     private String defaultAction;
+    private ArrayList<Observer> observers = new ArrayList<>();
 
     /**
      * Getter for ID
@@ -74,5 +80,25 @@ public abstract class Item implements Entity, ItemInterface {
      */
     public void setDefaultAction(String defaultAction) {
         this.defaultAction = defaultAction;
+    }
+
+    @Override
+    public void registerObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+
+    @Override
+    public void notifyObservers(Action action, Object value) {
+        for (Observer ob : observers) {
+            System.out
+                    .println("Notifying Observers on change in Loan interest rate");
+            ob.update(action, value);
+        }
     }
 }

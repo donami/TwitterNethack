@@ -1,6 +1,7 @@
 package com.bth.Game.Item;
 
 import com.bth.Game.Util.Collision;
+import com.bth.Game.Util.Observer.Action;
 
 public class Potion extends Item {
     private int health;
@@ -12,7 +13,7 @@ public class Potion extends Item {
     }
 
     public void use() {
-
+        this.notifyObservers(Action.INCREASE_HEALTH, this.health);
     }
 
     public Collision.Dialogs collide() {

@@ -10,6 +10,8 @@ import com.bth.Game.Player.Player;
 import com.bth.Game.Util.Collision;
 import com.bth.Game.Util.Commands;
 import com.bth.Game.Util.Entity;
+import com.bth.Game.Util.Observer.Action;
+import com.bth.Game.Util.Observer.Observer;
 import com.bth.Game.Util.Printer;
 
 import java.util.ArrayList;
@@ -145,6 +147,10 @@ public class Game extends State {
                 Item item = (Item) entity;
                 String answer = this.itemHandler.itemSaveDialog(item);
 
+                // Add observer
+                ItemObserver itemObs = new ItemObserver();
+                item.registerObserver(itemObs);
+
                 if (answer.equals("save")) {
                     // Add the item to the backpack
                     this.player.getBackpack().addItem(item);
@@ -224,10 +230,19 @@ public class Game extends State {
     }
 
     /**
-     * DEBUG
-     * TODO REMOVE THIS LATER
+     * Observer for items
      */
-    private void debugPlayerPos() {
-        System.out.println(this.playerPos.get('x') + ", " + this.playerPos.get('y'));
+    private class ItemObserver implements Observer {
+
+        @Override
+        public void update(Action action, Object value) {
+            switch (action) {
+                case INCREASE_HEALTH:
+                    System.out.println("Your health is increased by " + value);
+                    Game.this.player.setHealth(Game.this.player.getHealth() + (int) value);
+                    break;
+            }
+        }
+
     }
 }
