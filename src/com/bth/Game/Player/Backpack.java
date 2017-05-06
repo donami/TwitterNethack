@@ -3,6 +3,7 @@ package com.bth.Game.Player;
 import com.bth.Game.Item.Item;
 import com.bth.Game.Util.Input;
 import com.bth.Game.Util.Observer.Action;
+import com.bth.Game.Util.Printer;
 import org.apache.commons.lang.StringUtils;
 
 import java.util.EnumMap;
@@ -34,15 +35,15 @@ public class Backpack {
 
         // Check if the backpack has items
         if (items.size() <= 0) {
-            System.out.println("\tYour backpack is empty");
+            Printer.out.println("\tYour backpack is empty");
             map.put(Action.DO_NOTHING, null);
             return map;
         }
 
-        System.out.println("\tYou open your backpack and you find the following items:");
-        items.forEach(item -> System.out.println("\t\t- " + item.getName()));
+        Printer.out.println("\tYou open your backpack and you find the following items:");
+        items.forEach(item -> Printer.out.println("\t\t- " + item.getName()));
 
-        System.out.println("Enter \"use [itemname]\" to use the item, enter \"close\" to close the backpack");
+        Printer.out.println("\tEnter \"use [itemname]\" to use the item, enter \"close\" to close the backpack");
 
         boolean validAnswer = false;
         String answer;
@@ -67,13 +68,13 @@ public class Backpack {
                 }
 
                 if (!contains) {
-                    System.out.println("That item does not seem to be in your backpack");
+                    Printer.out.println("That item does not seem to be in your backpack");
                 }
             }
             else if (parts[0].equals("close")) {
                 validAnswer = true;
                 map.put(Action.CLOSE_BACKPACK, null);
-                System.out.println("\tYou close your backpack");
+                Printer.out.println("\tYou close your backpack");
             }
         } while (!validAnswer);
 

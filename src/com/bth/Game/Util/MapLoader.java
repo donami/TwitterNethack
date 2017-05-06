@@ -41,9 +41,9 @@ public class MapLoader extends FileReader {
     public void printMap(char[][] map) {
         for (char[] container : map) {
             for (char c : container) {
-                System.out.print(c);
+                Printer.out.print(c);
             }
-            System.out.println("");
+            Printer.out.println("");
         }
     }
 }

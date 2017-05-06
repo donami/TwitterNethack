@@ -1,6 +1,8 @@
 package com.bth.Game.Item;
 
 import com.bth.Game.Util.Input;
+import com.bth.Game.Util.Printer;
+import com.sun.org.apache.xpath.internal.SourceTree;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -37,15 +39,16 @@ public class ItemHandler {
         // TODO: 2017-05-04 implement
     }
 
-
     /**
      * Display a save dialog for specified item
      * @param item  The item to save
      * @return  The answer
      */
     public String itemSaveDialog(Item item) {
-        System.out.println("You can either use it now, or save it to your backpack to use it later");
-        System.out.println("Type \"save\" to save it, or \"use\" to use it now");
+        Printer.out.println("\tYou found a " + item.getName().toLowerCase() + "!");
+        Printer.out.println("\t\t- " + item.getDescription());
+        Printer.out.println("\tYou can either use it now, or save it to your backpack to use it later");
+        Printer.out.println("\tType \"save\" to save it, or \"use\" to use it now");
 
         boolean validAnswer = false;
         String answer;

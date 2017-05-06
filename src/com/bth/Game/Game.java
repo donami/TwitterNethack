@@ -42,7 +42,7 @@ public class Game extends State {
      * Initialize
      */
     private void initialize() {
-        System.out.println("STARTING GAME");
+        Printer.out.println("STARTING GAME");
         this.player = new Player();
         this.caveHandler = new CaveHandler();
         this.itemHandler = new ItemHandler();
@@ -60,8 +60,8 @@ public class Game extends State {
     private void start() {
         ArrayList<String> possibleMoves = this.caveHandler.getPossibleMoves(this.currentCave, this.playerPos);
 
-        System.out.println("\tYou enter a new cave.");
-        System.out.println("\tCave name: " + this.currentCave.getName());
+        Printer.out.println("\tYou enter a new cave.");
+        Printer.out.println("\tCave name: " + this.currentCave.getName());
 
         if (possibleMoves.isEmpty()) {
             this.printer.printPlayerStuck();
@@ -268,7 +268,7 @@ public class Game extends State {
         public void update(Action action, Object value) {
             switch (action) {
                 case INCREASE_HEALTH:
-                    System.out.println("Your health is increased by " + value);
+                    Printer.out.println("Your health is increased by " + value);
                     Game.this.player.setHealth(Game.this.player.getHealth() + (int) value);
                     break;
             }

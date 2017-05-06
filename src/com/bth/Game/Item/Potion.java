@@ -7,11 +7,13 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Potion extends Item {
     private int health;
+    private boolean usable;
 
     public Potion() {
         this.health = this.randomHealth(1, 50);
         this.name = "Potion";
         this.description = "Use this to increase your health by " + this.health;
+        this.usable = true;
     }
 
     /**
@@ -21,10 +23,20 @@ public class Potion extends Item {
         this.notifyObservers(Action.INCREASE_HEALTH, this.health);
     }
 
+    /**
+     * Handle collision with the item
+     * @return  Action for collision
+     */
     public Collision.Dialogs collide() {
-        System.out.println("You found a potion!");
-
         return Collision.Dialogs.ITEM_SAVE_DIALOG;
+    }
+
+    /**
+     * Getter for usable
+     * @return  usable
+     */
+    public boolean isUsable() {
+        return this.usable;
     }
 
     /**

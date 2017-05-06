@@ -7,15 +7,40 @@ import com.sun.org.apache.xpath.internal.SourceTree;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.util.*;
 
 public class Printer {
+    public static Scanner in = new Scanner(System.in);
+    public static PrintStream out = System.out;
+
     public Printer() {
 
     }
 
+    public static int printMenu(String question, ArrayList<String> menu) {
+        out.println("\t" + question);
+
+        return Printer.printMenu(menu);
+    }
+
+    public static int printMenu(ArrayList<String> menu) {
+        for (int i = 0; i < menu.size(); i++) {
+            Printer.out.println("\t" + (i + 1) + ". " + menu.get(i));
+        }
+
+        int choice = in.nextInt();
+
+        while (choice < 1 || choice > menu.size()) {
+            out.println("\tPlease enter a valid number");
+            choice = in.nextInt();
+        }
+
+        return choice - 1;
+    }
+
     public Commands showGameDialog() {
-        System.out.println("\tWhat do you want to do? Type \"help\" for commands");
+        Printer.out.println("\tWhat do you want to do? Type \"help\" for commands");
 
         String answer;
         boolean validAnswer = false;
@@ -47,21 +72,20 @@ public class Printer {
                 command = commandMap.get(answer);
             }
             else {
-                System.out.println("Invalid command entered. Type \"help\" for commands");
+                Printer.out.println("Invalid command entered. Type \"help\" for commands");
             }
         } while (!validAnswer);
 
         // Handle the answer
         switch (command) {
             case HELP:
-                // TODO: 2017-05-05 write help text
-                System.out.println("\t===================");
-                System.out.println("\tAvailable commands:");
-                System.out.println("\t\thealth: Display your current health");
-                System.out.println("\t\tmove <direction>: Move in specific direction, valid directions are: north, south, west, east");
-                System.out.println("\t\topen backpack: Open your backpack and display it's content");
-                System.out.println("\t\tmoves: Display available moves");
-                System.out.println("\t\tquit: Exit the game");
+                Printer.out.println("\t===================");
+                Printer.out.println("\tAvailable commands:");
+                Printer.out.println("\t\thealth: Display your current health");
+                Printer.out.println("\t\tmove <direction>: Move in specific direction, valid directions are: north, south, west, east");
+                Printer.out.println("\t\topen backpack: Open your backpack and display it's content");
+                Printer.out.println("\t\tmoves: Display available moves");
+                Printer.out.println("\t\tquit: Exit the game");
                 break;
             case MOVE_EAST:
                 break;
@@ -81,7 +105,7 @@ public class Printer {
                 break;
             case UNKNOWN:
             default:
-                System.out.println("Invalid command");
+                Printer.out.println("Invalid command");
                 break;
         }
 
@@ -93,7 +117,7 @@ public class Printer {
      * @param possibleMoves List of possible moves
      */
     public void printAvailableMoves(List<String> possibleMoves) {
-        System.out.println("\tYou look around and see that you can make the following moves: " + String.join(", ", possibleMoves));
+        Printer.out.println("\tYou look around and see that you can make the following moves: " + String.join(", ", possibleMoves));
     }
 
     /**
@@ -101,21 +125,21 @@ public class Printer {
      * @param direction Direction to move
      */
     public void printPlayerMoved(String direction) {
-        System.out.println("You moved to the " + direction);
+        Printer.out.println("You moved to the " + direction);
     }
 
     /**
      * Print player move fail message
      */
     public void printPlayerMoveFail() {
-        System.out.println("You are not able to move in that direction");
+        Printer.out.println("You are not able to move in that direction");
     }
 
     /**
      * Print player stuck message
      */
     public void printPlayerStuck() {
-        System.out.println("Uh-oh there is no possible moves, you are stuck!");
+        Printer.out.println("Uh-oh there is no possible moves, you are stuck!");
     }
 
     /**
@@ -123,7 +147,7 @@ public class Printer {
      * @param health    Health
      */
     public void printCurrentHealth(int health) {
-        System.out.println("Your current health is: " + health);
+        Printer.out.println("Your current health is: " + health);
     }
 
     private String getInput() {

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 interface ItemInterface {
     void use();
+    boolean isUsable();
 }
 
 public abstract class Item implements Entity, ItemInterface, Subject {

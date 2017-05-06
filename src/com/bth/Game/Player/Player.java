@@ -1,5 +1,7 @@
 package com.bth.Game.Player;
 
+import com.bth.Game.Util.Printer;
+
 public class Player {
     private int health;
     private Backpack backpack;
@@ -22,7 +24,7 @@ public class Player {
     public void die() {
         this.health = 0;
 
-        System.out.println("\tUh-oh! You are now dead.");
+        Printer.out.println("\tUh-oh! You are now dead.");
     }
 
     /**

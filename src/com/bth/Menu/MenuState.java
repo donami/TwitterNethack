@@ -2,13 +2,13 @@ package com.bth.Menu;
 
 import com.bth.App.State;
 import com.bth.App.StateManager;
+import com.bth.Game.Util.Printer;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class MenuState extends State {
     private StateManager stateManager;
+    private ArrayList<String> menu;
 
     public MenuState(StateManager stateManager) {
         this.stateManager = stateManager;
@@ -19,6 +19,11 @@ public class MenuState extends State {
      * Initialize
      */
     private void initialize() {
+        this.menu = new ArrayList<>();
+
+        menu.add("New game");
+        menu.add("Exit application");
+
         this.displayMenu();
     }
 
@@ -26,36 +31,12 @@ public class MenuState extends State {
      * Display the menu
      */
     private void displayMenu() {
-        System.out.println("\tWelcome to TwitterNethack!");
-        System.out.println("\t==========================");
+        String welcome = "Welcome to TwitterNethack!\n" +
+                "\t==========================";
 
-        System.out.println("\t1. Launch game \n" +
-                "\t0. Exit application \n");
+        int menuChoice = Printer.printMenu(welcome, this.menu);
 
-
-        System.out.print("\tEnter menu selection");
-
-        boolean validInput = false;
-
-        do {
-            try {
-                int answer = Integer.parseInt(this.getInput());
-
-                // Check if selection exists in the menu
-                if (answer >= 0 && answer <= 1) {
-                    validInput = true;
-
-                    this.handleMenuSelection(answer);
-                }
-                else {
-                    System.out.println("Invalid menu selection entered");
-                }
-
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid menu selection entered");
-            }
-        } while (!validInput);
-
+        this.handleMenuSelection(menuChoice);
     }
 
     /**
@@ -64,35 +45,16 @@ public class MenuState extends State {
      */
     private void handleMenuSelection(int answer) {
         switch (answer) {
-            case 1:
+            case 0:
                 // Launch game
                 this.launchGame();
                 break;
 
-            case 0:
+            case 1:
                 // Exit game
                 this.quit();
-            default:
-                System.out.println("Invalid selection");
                 break;
         }
-    }
-
-    /**
-     * Get the input from console
-     * @return  Input as string
-     */
-    private String getInput() {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String input = null;
-
-        try {
-            input = reader.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        
-        return input;
     }
 
     /**
