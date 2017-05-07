@@ -46,6 +46,14 @@ public class Cave {
     public void loadMapData() {
         MapLoader mapLoader = new MapLoader();
         this.mapData = mapLoader.loadMap();
+
+        for (Entity[] row: this.mapData) {
+            for (Entity col : row) {
+                if (col instanceof Item) {
+                    this.items.add((Item) col);
+                }
+            }
+        }
     }
 
     /**
@@ -107,7 +115,7 @@ public class Cave {
      * @param x X-coordinate
      * @param y Y-coordinate
      */
-    public void removeEntityAtPos(int x, int y) {
+    void removeEntityAtPos(int x, int y) {
         this.mapData[y][x] = new Ground();
     }
 

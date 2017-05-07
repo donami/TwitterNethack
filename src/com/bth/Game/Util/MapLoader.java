@@ -1,5 +1,7 @@
 package com.bth.Game.Util;
 
+import com.bth.Game.Item.Item;
+
 import java.util.List;
 
 public class MapLoader extends FileReader {

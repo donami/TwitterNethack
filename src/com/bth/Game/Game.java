@@ -7,15 +7,11 @@ import com.bth.Game.Cave.CaveHandler;
 import com.bth.Game.Item.Item;
 import com.bth.Game.Item.ItemHandler;
 import com.bth.Game.Player.Player;
-import com.bth.Game.Util.Collision;
-import com.bth.Game.Util.Commands;
-import com.bth.Game.Util.Entity;
+import com.bth.Game.Util.*;
 import com.bth.Game.Util.Observer.Action;
 import com.bth.Game.Util.Observer.Observer;
-import com.bth.Game.Util.Printer;
 
 import java.util.ArrayList;
-import java.util.EnumMap;
 import java.util.HashMap;
 
 public class Game extends State {
@@ -28,6 +24,7 @@ public class Game extends State {
     private Cave currentCave;
     private int numberOfCaves = 1;
     private ItemObserver itemObs = new ItemObserver();
+    private Interpreter interpreter;
 
     private HashMap<Character, Integer> playerPos = new HashMap<>();
 
@@ -49,6 +46,7 @@ public class Game extends State {
         this.printer = new Printer();
         this.collision = new Collision();
         this.currentCave = null;
+        this.interpreter = new Interpreter(this.itemHandler);
 
         // Create caves
         this.createCaves();
@@ -105,28 +103,43 @@ public class Game extends State {
                         this.printer.printCurrentHealth(this.player.getHealth());
                         break;
                     case OPEN_BACKPACK:
-                        this.player.getBackpack().setOpen(true);
-                        EnumMap<Action, Item> action = this.player.getBackpack().printBackpack();
+                        Action action;
 
-                        // Handle user response
-                        if (action.containsKey(Action.USE_ITEM)) {
-                            Item item = action.get(Action.USE_ITEM);
-                            // Use the item
-                            item.use();
-                            // Remove item from backpack after use
-                            player.getBackpack().getItems().remove(item);
-                            item.removeObserver(this.itemObs);
+                        // Check if backpack is empty
+                        if (this.player.getBackpack().isEmpty()) {
+                            Printer.out.println("\tYour backpack is empty");
+                            action = Action.DO_NOTHING;
                         }
-                        else if (action.containsKey(Action.CLOSE_BACKPACK)) {
-                            // Close backpack
-                            this.player.getBackpack().setOpen(false);
+                        else {
+                            this.player.getBackpack().setOpen(true);
+                            String actionString = this.player.getBackpack().printBackpack();
+                            action = this.interpreter.interpretString(actionString);
                         }
 
+                        switch (action) {
+                            case USE_ITEM:
+                                Item item = action.getObject();
+                                // Use the item
+                                item.use();
+                                // Remove item from backpack after use
+                                this.player.getBackpack().getItems().remove(item);
+                                this.itemHandler.removeItem(item);
+                                item.removeObserver(this.itemObs);
+                                break;
+                            case CLOSE_BACKPACK:
+                                // Close backpack
+                                this.player.getBackpack().setOpen(false);
+                                break;
+                            case INVALID_COMMAND:
+                                Printer.out.println("\tInvalid command");
+                                break;
+                            case DO_NOTHING:
+                                break;
+                        }
                         break;
                     default:
                 }
             } while (command != Commands.QUIT);
-
         }
 
     }
@@ -136,19 +149,9 @@ public class Game extends State {
      * @param movement  Direction to move
      */
     private void handleMove(Movement movement) {
-        String movementString = "";
-
-        switch (movement) {
-            case EAST: movementString = "east"; break;
-            case NORTH: movementString = "north"; break;
-            case WEST: movementString = "west"; break;
-            case SOUTH: movementString = "south"; break;
-            default: break;
-        }
-
         // Check if move was success full
         if (this.movePlayer(movement)) {
-            this.printer.printPlayerMoved(movementString);
+            this.printer.printPlayerMoved(movement.getCode());
 
             // Check if player's new position is colliding with an entity
             this.handleEntityCollision();
@@ -172,21 +175,23 @@ public class Game extends State {
         switch (dialog) {
             case ITEM_SAVE_DIALOG:
                 Item item = (Item) entity;
-                String answer = this.itemHandler.itemSaveDialog(item);
+                Action answer = this.itemHandler.itemSaveDialog(item);
 
                 // Add observer
                 item.registerObserver(this.itemObs);
 
-                if (answer.equals("save")) {
-                    // Add the item to the backpack
-                    this.player.getBackpack().addItem(item);
-                    // Remove item from cave
-                    this.caveHandler.removeEntityFromCave(this.currentCave, this.playerPos.get('x'), this.playerPos.get('y'));
-                }
-                else if (answer.equals("use")) {
-                    item.use();
-                    // Remove item from cave
-                    this.caveHandler.removeEntityFromCave(this.currentCave, this.playerPos.get('x'), this.playerPos.get('y'));
+                switch (answer) {
+                    case SAVE_ITEM:
+                        // Add the item to the backpack
+                        this.player.getBackpack().addItem(item);
+                        // Remove item from cave
+                        this.caveHandler.removeEntityFromCave(this.currentCave, this.playerPos.get('x'), this.playerPos.get('y'));
+                        break;
+                    case USE_ITEM:
+                        item.use();
+                        // Remove item from cave
+                        this.caveHandler.removeEntityFromCave(this.currentCave, this.playerPos.get('x'), this.playerPos.get('y'));
+                        break;
                 }
 
                 break;
@@ -239,6 +244,11 @@ public class Game extends State {
         // Set the first cave to current cave
         this.currentCave = this.caveHandler.getCaves().get(0);
         this.currentCave.loadMapData();
+
+        for (Item item : this.currentCave.getItems()) {
+            this.itemHandler.addItem(item);
+        }
+
         this.setPlayerPos(0, 0);
     }
 

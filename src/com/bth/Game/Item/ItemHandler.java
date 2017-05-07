@@ -1,9 +1,10 @@
 package com.bth.Game.Item;
 
-import com.bth.Game.Util.Input;
+import com.bth.Game.Util.EventInterface;
+import com.bth.Game.Util.Observer.Action;
 import com.bth.Game.Util.Printer;
-import com.sun.org.apache.xpath.internal.SourceTree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -31,6 +32,27 @@ public class ItemHandler {
         return this.items;
     }
 
+    public void addItem(Item item) {
+        this.items.add(item);
+    }
+
+    public void removeItem(Item item) {
+        this.items.remove(item);
+    }
+
+    public Item getItemByCode(String code) {
+        Item item = null;
+
+        for (Item i : this.items) {
+            if (i.getName().toLowerCase().equals(code)) {
+                item = i;
+                break;
+            }
+        }
+
+        return item;
+    }
+
     /**
      * Display information about specified item
      * @param item  The item
@@ -44,23 +66,19 @@ public class ItemHandler {
      * @param item  The item to save
      * @return  The answer
      */
-    public String itemSaveDialog(Item item) {
+    public Action itemSaveDialog(Item item) {
         Printer.out.println("\tYou found a " + item.getName().toLowerCase() + "!");
         Printer.out.println("\t\t- " + item.getDescription());
         Printer.out.println("\tYou can either use it now, or save it to your backpack to use it later");
-        Printer.out.println("\tType \"save\" to save it, or \"use\" to use it now");
+        Printer.out.println("\tWhat do you want to do");
 
-        boolean validAnswer = false;
-        String answer;
+        ArrayList<EventInterface> menu = new ArrayList<>();
+        menu.add(Action.SAVE_ITEM);
+        menu.add(Action.USE_ITEM);
+        menu.add(Action.DO_NOTHING);
 
-        do {
-            answer = Input.getInput();
+        int choice = Printer.printCommandMenu(menu);
 
-            if (answer.equals("save") || answer.equals("use")) {
-                validAnswer = true;
-            }
-        } while (!validAnswer);
-
-        return answer;
+        return (Action) menu.get(choice);
     }
 }
