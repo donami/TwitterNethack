@@ -20,7 +20,6 @@ public class Game extends State {
     private Collision collision;
     private CaveHandler caveHandler;
     private Player player;
-    private Printer printer;
     private Cave currentCave;
     private int numberOfCaves = 1;
     private ItemObserver itemObs = new ItemObserver();
@@ -39,11 +38,9 @@ public class Game extends State {
      * Initialize
      */
     private void initialize() {
-        Printer.out.println("STARTING GAME");
         this.player = new Player();
         this.caveHandler = new CaveHandler();
         this.itemHandler = new ItemHandler();
-        this.printer = new Printer();
         this.collision = new Collision();
         this.currentCave = null;
         this.interpreter = new Interpreter(this.itemHandler);
@@ -58,8 +55,8 @@ public class Game extends State {
     private void start() {
         ArrayList<String> possibleMoves = this.caveHandler.getPossibleMoves(this.currentCave, this.playerPos);
 
-        Printer.out.println("\tYou enter a new cave.");
-        Printer.out.println("\tCave name: " + this.currentCave.getName());
+        this.printer.println("\tYou enter a new cave.");
+        this.printer.println("\tCave name: " + this.currentCave.getName());
 
         if (possibleMoves.isEmpty()) {
             this.printer.printPlayerStuck();
@@ -103,45 +100,52 @@ public class Game extends State {
                         this.printer.printCurrentHealth(this.player.getHealth());
                         break;
                     case OPEN_BACKPACK:
-                        Action action;
-
-                        // Check if backpack is empty
-                        if (this.player.getBackpack().isEmpty()) {
-                            Printer.out.println("\tYour backpack is empty");
-                            action = Action.DO_NOTHING;
-                        }
-                        else {
-                            this.player.getBackpack().setOpen(true);
-                            String actionString = this.player.getBackpack().printBackpack();
-                            action = this.interpreter.interpretString(actionString);
-                        }
-
-                        switch (action) {
-                            case USE_ITEM:
-                                Item item = action.getObject();
-                                // Use the item
-                                item.use();
-                                // Remove item from backpack after use
-                                this.player.getBackpack().getItems().remove(item);
-                                this.itemHandler.removeItem(item);
-                                item.removeObserver(this.itemObs);
-                                break;
-                            case CLOSE_BACKPACK:
-                                // Close backpack
-                                this.player.getBackpack().setOpen(false);
-                                break;
-                            case INVALID_COMMAND:
-                                Printer.out.println("\tInvalid command");
-                                break;
-                            case DO_NOTHING:
-                                break;
-                        }
+                        this.handleOpenBackpack();
                         break;
                     default:
                 }
             } while (command != Commands.QUIT);
         }
 
+    }
+
+    /**
+     * Action handler for opening the backpack
+     */
+    private void handleOpenBackpack() {
+        Action action;
+
+        // Check if backpack is empty
+        if (this.player.getBackpack().isEmpty()) {
+            this.printer.println("\tYour backpack is empty");
+            action = Action.DO_NOTHING;
+        }
+        else {
+            this.player.getBackpack().setOpen(true);
+            String actionString = this.player.getBackpack().printBackpack();
+            action = this.interpreter.interpretString(actionString);
+        }
+
+        switch (action) {
+            case USE_ITEM:
+                Item item = action.getObject();
+                // Use the item
+                item.use();
+                // Remove item from backpack after use
+                this.player.getBackpack().getItems().remove(item);
+                this.itemHandler.removeItem(item);
+                item.removeObserver(this.itemObs);
+                break;
+            case CLOSE_BACKPACK:
+                // Close backpack
+                this.player.getBackpack().setOpen(false);
+                break;
+            case INVALID_COMMAND:
+                this.printer.println("\tInvalid command");
+                break;
+            case DO_NOTHING:
+                break;
+        }
     }
 
     /**
@@ -278,7 +282,7 @@ public class Game extends State {
         public void update(Action action, Object value) {
             switch (action) {
                 case INCREASE_HEALTH:
-                    Printer.out.println("Your health is increased by " + value);
+                    Game.this.printer.println("Your health is increased by " + value);
                     Game.this.player.setHealth(Game.this.player.getHealth() + (int) value);
                     break;
             }

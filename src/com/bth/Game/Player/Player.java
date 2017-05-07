@@ -5,6 +5,7 @@ import com.bth.Game.Util.Printer;
 public class Player {
     private int health;
     private Backpack backpack;
+    private Printer printer;
 
     public Player() {
         this.initialize();
@@ -16,6 +17,7 @@ public class Player {
     private void initialize() {
         this.health = 100;
         this.backpack = new Backpack();
+        this.printer = new Printer();
     }
 
     /**
@@ -24,7 +26,7 @@ public class Player {
     public void die() {
         this.health = 0;
 
-        Printer.out.println("\tUh-oh! You are now dead.");
+        this.printer.println("\tUh-oh! You are now dead.");
     }
 
     /**
@@ -57,7 +59,7 @@ public class Player {
      * Open the backpack
      * @return  True if backpack is open, else false
      */
-    public boolean openBackpack() {
+    public Backpack openBackpack() {
         return this.backpack.setOpen(true);
     }
 }

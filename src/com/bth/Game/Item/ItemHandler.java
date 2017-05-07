@@ -2,13 +2,13 @@ package com.bth.Game.Item;
 
 import com.bth.Game.Util.EventInterface;
 import com.bth.Game.Util.Observer.Action;
-import com.bth.Game.Util.Printer;
+import com.bth.Game.Util.Printable;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ItemHandler {
+public class ItemHandler extends Printable {
     private List<Item> items;
     private ActionDispatcher actionDispatcher;
 
@@ -67,17 +67,17 @@ public class ItemHandler {
      * @return  The answer
      */
     public Action itemSaveDialog(Item item) {
-        Printer.out.println("\tYou found a " + item.getName().toLowerCase() + "!");
-        Printer.out.println("\t\t- " + item.getDescription());
-        Printer.out.println("\tYou can either use it now, or save it to your backpack to use it later");
-        Printer.out.println("\tWhat do you want to do");
+        this.printer.println("\tYou found a " + item.getName().toLowerCase() + "!");
+        this.printer.println("\t\t- " + item.getDescription());
+        this.printer.println("\tYou can either use it now, or save it to your backpack to use it later");
+        this.printer.println("\tWhat do you want to do");
 
         ArrayList<EventInterface> menu = new ArrayList<>();
         menu.add(Action.SAVE_ITEM);
         menu.add(Action.USE_ITEM);
         menu.add(Action.DO_NOTHING);
 
-        int choice = Printer.printCommandMenu(menu);
+        int choice = this.printer.printCommandMenu(menu);
 
         return (Action) menu.get(choice);
     }

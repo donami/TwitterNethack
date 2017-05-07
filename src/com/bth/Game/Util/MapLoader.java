@@ -34,18 +34,4 @@ public class MapLoader extends FileReader {
 
         return entityMap;
     }
-
-    /**
-     * Debug: Used for easier debugging
-     * TODO: 2017-05-05 remove this later
-     * @param map   Map data
-     */
-    public void printMap(char[][] map) {
-        for (char[] container : map) {
-            for (char c : container) {
-                Printer.out.print(c);
-            }
-            Printer.out.println("");
-        }
-    }
 }

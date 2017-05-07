@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class Backpack {
     private List<Item> items;
     private boolean open;
+    private Printer printer;
 
     Backpack() {
         this.initialize();
@@ -21,6 +22,7 @@ public class Backpack {
     private void initialize() {
         this.items = new LinkedList<>();
         this.open = false;
+        this.printer = new Printer();
     }
 
     public boolean isEmpty() {
@@ -31,10 +33,10 @@ public class Backpack {
      * Print the contents of the backpack and display dialog
      */
     public String printBackpack() {
-        Printer.out.println("\tYou open your backpack and you find the following items:");
-        this.items.forEach(item -> Printer.out.println("\t\t- " + item.getName()));
+        this.printer.println("\tYou open your backpack and you find the following items:");
+        this.items.forEach(item -> this.printer.println("\t\t- " + item.getName()));
 
-        Printer.out.println("\tEnter \"use [itemname]\" to use the item, enter \"close\" to close the backpack");
+        this.printer.println("\tEnter \"use [itemname]\" to use the item, enter \"close\" to close the backpack");
 
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
@@ -62,9 +64,17 @@ public class Backpack {
      * @param open  If the backpack is open or close
      * @return  True if backpack is open, else false
      */
-    public boolean setOpen(boolean open) {
+    public Backpack setOpen(boolean open) {
         this.open = open;
 
+        return this;
+    }
+
+    /**
+     * Getter for open
+     * @return  Value of open
+     */
+    public boolean getOpen() {
         return this.open;
     }
 

@@ -9,8 +9,10 @@ import java.util.ArrayList;
 public class MenuState extends State {
     private StateManager stateManager;
     private ArrayList<String> menu;
+    private Printer printer;
 
     public MenuState(StateManager stateManager) {
+        this.printer = new Printer();
         this.stateManager = stateManager;
         this.initialize();
     }
@@ -34,7 +36,7 @@ public class MenuState extends State {
         String welcome = "Welcome to TwitterNethack!\n" +
                 "\t==========================";
 
-        int menuChoice = Printer.printMenu(welcome, this.menu);
+        int menuChoice = this.printer.printMenu(welcome, this.menu);
 
         this.handleMenuSelection(menuChoice);
     }
