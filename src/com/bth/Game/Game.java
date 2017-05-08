@@ -4,12 +4,10 @@ import com.bth.App.State;
 import com.bth.App.StateManager;
 import com.bth.Game.Cave.Cave;
 import com.bth.Game.Cave.CaveHandler;
-import com.bth.Game.Item.Item;
 import com.bth.Game.Item.ItemHandler;
 import com.bth.Game.Player.Player;
 import com.bth.Game.Util.*;
 import com.bth.Game.Util.Observer.Action;
-import com.bth.Game.Util.Observer.Observer;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +20,6 @@ public class Game extends State {
     private Player player;
     private Cave currentCave;
     private int numberOfCaves = 1;
-    private ItemObserver itemObs = new ItemObserver();
     private Interpreter interpreter;
 
     private HashMap<Character, Integer> playerPos = new HashMap<>();
@@ -55,18 +52,17 @@ public class Game extends State {
     private void start() {
         ArrayList<String> possibleMoves = this.caveHandler.getPossibleMoves(this.currentCave, this.playerPos);
 
-        this.printer.println("\tYou enter a new cave.");
-        this.printer.println("\tCave name: " + this.currentCave.getName());
+        UI.write("You enter a new cave.");
+        UI.write("Cave name: " + this.currentCave.getName());
 
         if (possibleMoves.isEmpty()) {
-            this.printer.printPlayerStuck();
+            UI.write(Constants.NO_POSSIBLE_MOVES.getText());
 
             // End the game as there is no possible moves
             this.endGameSession();
         }
         else {
-            this.printer.printAvailableMoves(possibleMoves);
-
+            UI.write(Constants.POSSIBLE_MOVES.getText(), String.join(", ", possibleMoves));
             Commands command;
 
             do {
@@ -78,7 +74,7 @@ public class Game extends State {
 
                 possibleMoves = this.caveHandler.getPossibleMoves(this.currentCave, this.playerPos);
 
-                command = this.printer.showGameDialog();
+                command = Decision.showGameDialog();
 
                 switch (command) {
                     case MOVE_EAST:
@@ -94,10 +90,10 @@ public class Game extends State {
                         this.handleMove(Movement.WEST);
                         break;
                     case AVAILABLE_MOVES:
-                        this.printer.printAvailableMoves(possibleMoves);
+                        UI.write(Constants.POSSIBLE_MOVES.getText(), String.join(", ", possibleMoves));
                         break;
                     case HEALTH:
-                        this.printer.printCurrentHealth(this.player.getHealth());
+                        UI.write(Constants.CURRENT_HEALTH.getText(), this.player.getHealth());
                         break;
                     case OPEN_BACKPACK:
                         this.handleOpenBackpack();
@@ -117,29 +113,30 @@ public class Game extends State {
 
         // Check if backpack is empty
         if (this.player.getBackpack().isEmpty()) {
-            this.printer.println("\tYour backpack is empty");
+            UI.write(Constants.BACKPACK_EMPTY.getText());
             action = Action.DO_NOTHING;
         }
         else {
-            this.player.getBackpack().setOpen(true);
-            String actionString = this.player.getBackpack().printBackpack();
+            // Open the backpack and display it's content
+            UI.write(this.player.getBackpack().open());
+            // Catch user input
+            String actionString = this.player.getBackpack().selectItemDialog();
+            // Get the actual action from the user input
             action = this.interpreter.interpretString(actionString);
         }
 
         switch (action) {
             case USE_ITEM:
                 this.itemHandler.useItem(action.getObject());
-                Item item = action.getObject();
 
                 this.player.getBackpack().getItems().remove(action.getObject());
-                item.removeObserver(this.itemObs);
                 break;
             case CLOSE_BACKPACK:
                 // Close backpack
                 this.player.getBackpack().setOpen(false);
                 break;
             case INVALID_COMMAND:
-                this.printer.println("\tInvalid command");
+                UI.write(Constants.INVALID_COMMAND.getText());
                 break;
             case DO_NOTHING:
                 break;
@@ -153,18 +150,17 @@ public class Game extends State {
     private void handleMove(Movement movement) {
         // Check if move was success full
         if (this.movePlayer(movement)) {
-            this.printer.printPlayerMoved(movement.getCode());
+            UI.write(Constants.MOVED_TO.getText(), movement.getCode());
 
             // Check if player's new position is colliding with an entity
             this.handleEntityCollision();
 
         } else {
-            // Print message if player was unable to move
-            this.printer.printPlayerMoveFail();
+            UI.write(Constants.NOT_ABLE_TO_MOVE.getText());
         }
 
         ArrayList<String> possibleMoves = this.caveHandler.getPossibleMoves(this.currentCave, this.playerPos);
-        this.printer.printAvailableMoves(possibleMoves);
+        UI.write(Constants.POSSIBLE_MOVES.getText(), String.join(", ", possibleMoves));
     }
 
     /**
@@ -176,24 +172,11 @@ public class Game extends State {
 
         switch (dialog) {
             case ITEM_SAVE_DIALOG:
-                Item item = (Item) entity;
-                Action answer = this.itemHandler.itemSaveDialog(item);
+                UI.write(this.itemHandler.itemDialogMessage(entity));
+                boolean removeFromCave = this.itemHandler.itemSaveDialog(entity, this.player.getBackpack());
 
-                // Add observer
-                item.registerObserver(this.itemObs);
-
-                switch (answer) {
-                    case SAVE_ITEM:
-                        // Add the item to the backpack
-                        this.player.getBackpack().addItem(item);
-                        // Remove item from cave
-                        this.caveHandler.removeEntityFromCave(this.currentCave, this.playerPos.get('x'), this.playerPos.get('y'));
-                        break;
-                    case USE_ITEM:
-                        this.itemHandler.useItem(item);
-                        // Remove item from cave
-                        this.caveHandler.removeEntityFromCave(this.currentCave, this.playerPos.get('x'), this.playerPos.get('y'));
-                        break;
+                if (removeFromCave) {
+                    this.caveHandler.removeEntityFromCave(this.currentCave, this.playerPos.get('x'), this.playerPos.get('y'));
                 }
 
                 break;
@@ -201,7 +184,6 @@ public class Game extends State {
             case DO_NOTHING:
                 break;
         }
-
     }
 
     /**
@@ -247,9 +229,7 @@ public class Game extends State {
         this.currentCave = this.caveHandler.getCaves().get(0);
         this.currentCave.loadMapData();
 
-        for (Item item : this.currentCave.getItems()) {
-            this.itemHandler.addItem(item);
-        }
+        this.itemHandler.addItems(this.currentCave.getItems());
 
         this.setPlayerPos(0, 0);
     }
@@ -269,22 +249,5 @@ public class Game extends State {
      */
     private void endGameSession() {
         this.stateManager.setState(StateManager.States.MENU);
-    }
-
-    /**
-     * Observer for items
-     */
-    private class ItemObserver implements Observer {
-
-        @Override
-        public void update(Action action, Object value) {
-            switch (action) {
-//                case INCREASE_HEALTH:
-//                    Game.this.printer.println("Your health is increased by " + value);
-//                    Game.this.player.setHealth(Game.this.player.getHealth() + (int) value);
-//                    break;
-            }
-        }
-
     }
 }

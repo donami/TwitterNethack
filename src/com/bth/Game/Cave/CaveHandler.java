@@ -1,7 +1,6 @@
 package com.bth.Game.Cave;
 
 import com.bth.Game.Movement;
-import com.bth.Game.Util.Entity;
 
 import java.util.ArrayList;
 import java.util.HashMap;

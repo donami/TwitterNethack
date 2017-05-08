@@ -1,13 +1,13 @@
 package com.bth.Game.Player;
 
 import com.bth.Game.Util.Collision;
+import com.bth.Game.Util.Constants;
 import com.bth.Game.Util.Entity;
-import com.bth.Game.Util.Printer;
+import com.bth.Game.Util.UI;
 
 public class Player implements Entity {
     private int health;
     private Backpack backpack;
-    private Printer printer;
 
     public Player() {
         this.initialize();
@@ -19,7 +19,6 @@ public class Player implements Entity {
     private void initialize() {
         this.health = 100;
         this.backpack = new Backpack(this);
-        this.printer = new Printer();
     }
 
     /**
@@ -28,7 +27,7 @@ public class Player implements Entity {
     public void die() {
         this.health = 0;
 
-        this.printer.println("\tUh-oh! You are now dead.");
+        UI.write(Constants.PLAYER_DEAD.getText());
     }
 
     /**
@@ -55,6 +54,11 @@ public class Player implements Entity {
      */
     public int getHealth() {
         return this.health;
+    }
+
+    void increaseHealth(int health) {
+        UI.write(Constants.HEALTH_INCREASED_BY.getText(), health);
+        this.setHealth(this.health + health);
     }
 
     /**

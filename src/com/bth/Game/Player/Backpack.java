@@ -3,7 +3,6 @@ package com.bth.Game.Player;
 import com.bth.Game.Item.Item;
 import com.bth.Game.Util.Observer.Action;
 import com.bth.Game.Util.Observer.Observer;
-import com.bth.Game.Util.Printer;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -12,11 +11,10 @@ import java.util.Scanner;
 public class Backpack {
     private List<Item> items;
     private boolean open;
-    private Printer printer;
     private ItemObserver itemObserver;
     private Player player;
 
-    Backpack(Player player) {
+    public Backpack(Player player) {
         this.player = player;
         this.initialize();
     }
@@ -28,7 +26,6 @@ public class Backpack {
         this.itemObserver = new ItemObserver();
         this.items = new LinkedList<>();
         this.open = false;
-        this.printer = new Printer();
     }
 
     public boolean isEmpty() {
@@ -36,14 +33,25 @@ public class Backpack {
     }
 
     /**
-     * Print the contents of the backpack and display dialog
+     * Return a string representation of the backpack content
+     * @return String   Backpack string message
      */
     public String printBackpack() {
-        this.printer.println("\tYou open your backpack and you find the following items:");
-        this.items.forEach(item -> this.printer.println("\t\t- " + item.getName()));
+        StringBuilder msg = new StringBuilder();
+        msg.append("\tYou open your backpack and you find the following items:\n");
 
-        this.printer.println("\tEnter \"use [itemname]\" to use the item, enter \"close\" to close the backpack");
+        this.items.forEach(item -> msg.append("\t\t- ").append(item.getName()).append("\n"));
 
+        msg.append("\tEnter \"use [itemname]\" to use the item, enter \"close\" to close the backpack");
+
+        return msg.toString();
+    }
+
+    /**
+     * Present a item handling dialog on the backpack
+     * @return  User input
+     */
+    public String selectItemDialog() {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
@@ -63,6 +71,15 @@ public class Backpack {
      */
     public List<Item> getItems() {
         return this.items;
+    }
+
+    /**
+     * Open the backpack
+     * @return  String representation of the backpack
+     */
+    public String open() {
+        this.setOpen(true);
+        return this.printBackpack();
     }
 
     /**
@@ -95,6 +112,11 @@ public class Backpack {
         return item;
     }
 
+    public void removeItem(Item item) {
+        this.items.remove(item);
+        item.removeObserver(this.itemObserver);
+    }
+
     /**
      * Observer for items
      */
@@ -104,8 +126,7 @@ public class Backpack {
         public void update(Action action, Object value) {
             switch (action) {
                 case INCREASE_HEALTH:
-                    Backpack.this.printer.println("Your health is increased by " + value);
-                    Backpack.this.player.setHealth(Backpack.this.player.getHealth() + (int) value);
+                    Backpack.this.player.increaseHealth((int) value);
                     break;
             }
         }

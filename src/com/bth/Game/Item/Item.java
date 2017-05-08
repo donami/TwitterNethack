@@ -1,6 +1,5 @@
 package com.bth.Game.Item;
 
-import com.bth.Game.Player.Player;
 import com.bth.Game.Util.Entity;
 import com.bth.Game.Util.Observer.Action;
 import com.bth.Game.Util.Observer.Observer;
@@ -110,7 +109,6 @@ public abstract class Item implements Entity, ItemInterface, Subject {
     public void removeObserver(Observer observer) {
         observers.remove(observer);
     }
-
 
     @Override
     public void notifyObservers(Action action, Object value) {
