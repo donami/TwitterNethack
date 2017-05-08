@@ -1,6 +1,8 @@
 package com.bth.Game.Player;
 
 import com.bth.Game.Item.Item;
+import com.bth.Game.Util.Observer.Action;
+import com.bth.Game.Util.Observer.Observer;
 import com.bth.Game.Util.Printer;
 
 import java.util.LinkedList;
@@ -11,8 +13,11 @@ public class Backpack {
     private List<Item> items;
     private boolean open;
     private Printer printer;
+    private ItemObserver itemObserver;
+    private Player player;
 
-    Backpack() {
+    Backpack(Player player) {
+        this.player = player;
         this.initialize();
     }
 
@@ -20,6 +25,7 @@ public class Backpack {
      * Initialize
      */
     private void initialize() {
+        this.itemObserver = new ItemObserver();
         this.items = new LinkedList<>();
         this.open = false;
         this.printer = new Printer();
@@ -85,6 +91,24 @@ public class Backpack {
      */
     public Item addItem(Item item) {
         this.items.add(item);
+        item.registerObserver(this.itemObserver);
         return item;
+    }
+
+    /**
+     * Observer for items
+     */
+    private class ItemObserver implements Observer {
+
+        @Override
+        public void update(Action action, Object value) {
+            switch (action) {
+                case INCREASE_HEALTH:
+                    Backpack.this.printer.println("Your health is increased by " + value);
+                    Backpack.this.player.setHealth(Backpack.this.player.getHealth() + (int) value);
+                    break;
+            }
+        }
+
     }
 }

@@ -1,8 +1,10 @@
 package com.bth.Game.Player;
 
+import com.bth.Game.Util.Collision;
+import com.bth.Game.Util.Entity;
 import com.bth.Game.Util.Printer;
 
-public class Player {
+public class Player implements Entity {
     private int health;
     private Backpack backpack;
     private Printer printer;
@@ -16,7 +18,7 @@ public class Player {
      */
     private void initialize() {
         this.health = 100;
-        this.backpack = new Backpack();
+        this.backpack = new Backpack(this);
         this.printer = new Printer();
     }
 
@@ -61,5 +63,9 @@ public class Player {
      */
     public Backpack openBackpack() {
         return this.backpack.setOpen(true);
+    }
+
+    public Collision.Dialogs collide() {
+        return Collision.Dialogs.DO_NOTHING;
     }
 }

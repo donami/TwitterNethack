@@ -81,4 +81,16 @@ public class ItemHandler extends Printable {
 
         return (Action) menu.get(choice);
     }
+
+    /**
+     * Use an item and remove after use
+     * @param item  The item to use
+     */
+    public void useItem(Item item) {
+        // Use the item
+        item.use();
+
+        // Remove item after use
+        this.removeItem(item);
+    }
 }

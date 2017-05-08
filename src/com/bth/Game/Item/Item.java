@@ -1,5 +1,6 @@
 package com.bth.Game.Item;
 
+import com.bth.Game.Player.Player;
 import com.bth.Game.Util.Entity;
 import com.bth.Game.Util.Observer.Action;
 import com.bth.Game.Util.Observer.Observer;
@@ -18,6 +19,23 @@ public abstract class Item implements Entity, ItemInterface, Subject {
     String description;
     private String defaultAction;
     private ArrayList<Observer> observers = new ArrayList<>();
+    private Entity relatedEntity;
+
+    /**
+     * Getter for related entity
+     * @return  The entity
+     */
+    public Entity getRelatedEntity() {
+        return relatedEntity;
+    }
+
+    /**
+     * Setter for related entity
+     * @param entity    The entity
+     */
+    public void setRelatedEntity(Entity entity) {
+        this.relatedEntity = entity;
+    }
 
     /**
      * Getter for ID

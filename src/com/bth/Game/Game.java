@@ -128,12 +128,10 @@ public class Game extends State {
 
         switch (action) {
             case USE_ITEM:
+                this.itemHandler.useItem(action.getObject());
                 Item item = action.getObject();
-                // Use the item
-                item.use();
-                // Remove item from backpack after use
-                this.player.getBackpack().getItems().remove(item);
-                this.itemHandler.removeItem(item);
+
+                this.player.getBackpack().getItems().remove(action.getObject());
                 item.removeObserver(this.itemObs);
                 break;
             case CLOSE_BACKPACK:
@@ -192,7 +190,7 @@ public class Game extends State {
                         this.caveHandler.removeEntityFromCave(this.currentCave, this.playerPos.get('x'), this.playerPos.get('y'));
                         break;
                     case USE_ITEM:
-                        item.use();
+                        this.itemHandler.useItem(item);
                         // Remove item from cave
                         this.caveHandler.removeEntityFromCave(this.currentCave, this.playerPos.get('x'), this.playerPos.get('y'));
                         break;
@@ -281,10 +279,10 @@ public class Game extends State {
         @Override
         public void update(Action action, Object value) {
             switch (action) {
-                case INCREASE_HEALTH:
-                    Game.this.printer.println("Your health is increased by " + value);
-                    Game.this.player.setHealth(Game.this.player.getHealth() + (int) value);
-                    break;
+//                case INCREASE_HEALTH:
+//                    Game.this.printer.println("Your health is increased by " + value);
+//                    Game.this.player.setHealth(Game.this.player.getHealth() + (int) value);
+//                    break;
             }
         }
 
