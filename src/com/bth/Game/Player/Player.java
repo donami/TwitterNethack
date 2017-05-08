@@ -1,13 +1,18 @@
 package com.bth.Game.Player;
 
+import com.bth.Game.Game;
 import com.bth.Game.Util.Collision;
 import com.bth.Game.Util.Constants;
 import com.bth.Game.Util.Entity;
 import com.bth.Game.Util.UI;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Player implements Entity {
     private int health;
     private Backpack backpack;
+    private int minDamage;
+    private int maxDamage;
 
     public Player() {
         this.initialize();
@@ -19,6 +24,16 @@ public class Player implements Entity {
     private void initialize() {
         this.health = 100;
         this.backpack = new Backpack(this);
+        this.minDamage = 30;
+        this.maxDamage = 75;
+    }
+
+    /**
+     * Return whether or not the player is alive
+     * @return  Is player alive?
+     */
+    public boolean isAlive() {
+        return this.health > 0;
     }
 
     /**
@@ -28,6 +43,7 @@ public class Player implements Entity {
         this.health = 0;
 
         UI.write(Constants.PLAYER_DEAD.getText());
+        Game.pause(1000);
     }
 
     /**
@@ -59,6 +75,18 @@ public class Player implements Entity {
     void increaseHealth(int health) {
         UI.write(Constants.HEALTH_INCREASED_BY.getText(), health);
         this.setHealth(this.health + health);
+    }
+
+    /**
+     * Player takes damage
+     * @param damage    The amount of damage
+     */
+    public void takeDamage(int damage) {
+        this.health -= damage;
+    }
+
+    public int attack() {
+        return ThreadLocalRandom.current().nextInt(this.minDamage, this.maxDamage + 1);
     }
 
     /**

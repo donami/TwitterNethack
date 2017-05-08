@@ -11,7 +11,9 @@ public enum Commands implements EventInterface {
     UNKNOWN("Unknown"),
     QUIT("Quit"),
     AVAILABLE_MOVES("Moves"),
-    OPEN_BACKPACK("Open backpack");
+    OPEN_BACKPACK("Open backpack"),
+    FIGHT("Attack"),
+    RUN_AWAY("Run away");
 
     private final String code;
 

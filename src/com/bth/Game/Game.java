@@ -4,6 +4,7 @@ import com.bth.App.State;
 import com.bth.App.StateManager;
 import com.bth.Game.Cave.Cave;
 import com.bth.Game.Cave.CaveHandler;
+import com.bth.Game.Character.Creature;
 import com.bth.Game.Item.ItemHandler;
 import com.bth.Game.Player.Player;
 import com.bth.Game.Util.*;
@@ -70,6 +71,7 @@ public class Game extends State {
                 if (this.player.getHealth() <= 0) {
                     this.player.die();
                     this.endGameSession();
+                    break;
                 }
 
                 possibleMoves = this.caveHandler.getPossibleMoves(this.currentCave, this.playerPos);
@@ -159,8 +161,10 @@ public class Game extends State {
             UI.write(Constants.NOT_ABLE_TO_MOVE.getText());
         }
 
-        ArrayList<String> possibleMoves = this.caveHandler.getPossibleMoves(this.currentCave, this.playerPos);
-        UI.write(Constants.POSSIBLE_MOVES.getText(), String.join(", ", possibleMoves));
+        if (this.player.isAlive()) {
+            ArrayList<String> possibleMoves = this.caveHandler.getPossibleMoves(this.currentCave, this.playerPos);
+            UI.write(Constants.POSSIBLE_MOVES.getText(), String.join(", ", possibleMoves));
+        }
     }
 
     /**
@@ -180,9 +184,43 @@ public class Game extends State {
                 }
 
                 break;
+            case INTERACT_ENEMY:
+                this.handleInteractEnemy(entity);
+                break;
             default:
             case DO_NOTHING:
                 break;
+        }
+    }
+
+    private void handleInteractEnemy(Entity entity) {
+        Creature enemy = (Creature) entity;
+        Fight fight = new Fight(this.player, enemy);
+
+        UI.write("You found a %s", enemy.getName());
+        UI.write(enemy.getDescription());
+        UI.write(Constants.WHAT_TO_DO.getText());
+
+        ArrayList<EventInterface> menu = new ArrayList<>();
+        menu.add(Commands.FIGHT);
+        menu.add(Commands.RUN_AWAY);
+
+        // Display menu
+        Dialog dialog = new Dialog(menu);
+        int choice = dialog.getSelection();
+
+        switch ((Commands) menu.get(choice)) {
+            case FIGHT:
+                fight.attack();
+                break;
+            case RUN_AWAY:
+                fight.run();
+                break;
+        }
+
+        // If the enemy died during the fight, it should be remove from the cave
+        if (!enemy.isAlive()) {
+            this.caveHandler.removeEntityFromCave(this.currentCave, this.playerPos.get('x'), this.playerPos.get('y'));
         }
     }
 
@@ -249,5 +287,17 @@ public class Game extends State {
      */
     private void endGameSession() {
         this.stateManager.setState(StateManager.States.MENU);
+    }
+
+    /**
+     * Pause
+     * @param time  Time to pause
+     */
+    public static void pause(int time) {
+        try {
+            Thread.sleep(time);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

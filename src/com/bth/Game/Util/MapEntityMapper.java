@@ -2,6 +2,7 @@ package com.bth.Game.Util;
 
 import com.bth.Game.Cave.Ground;
 import com.bth.Game.Cave.Rock;
+import com.bth.Game.Character.Wizard;
 import com.bth.Game.Item.Potion;
 
 import java.util.HashMap;
@@ -15,6 +16,7 @@ public class MapEntityMapper {
             put('-', new Ground());
             put('|', new Rock());
             put('p', new Potion());
+            put('w', new Wizard());
         }
     };
 }

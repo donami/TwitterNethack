@@ -1,11 +1,9 @@
 package com.bth.Game.Cave;
 
-import com.bth.Game.Character.CharacterEntity;
+import com.bth.Game.Character.Creature;
 import com.bth.Game.Item.Item;
 import com.bth.Game.Movement;
 import com.bth.Game.Util.Entity;
-import com.bth.Game.Util.FileReader;
-import com.bth.Game.Util.MapEntityMapper;
 import com.bth.Game.Util.MapLoader;
 
 import java.util.HashMap;
@@ -17,7 +15,7 @@ public class Cave {
     private String name;
     private String description;
     private List<Item> items;
-    private List<CharacterEntity> characters;
+    private List<Creature> characters;
     private String mapPath;
     private Entity[][] mapData;
 
@@ -51,6 +49,9 @@ public class Cave {
             for (Entity col : row) {
                 if (col instanceof Item) {
                     this.items.add((Item) col);
+                }
+                else if (col instanceof Creature) {
+                    this.characters.add((Creature) col);
                 }
             }
         }
@@ -219,7 +220,7 @@ public class Cave {
      * Getter for the characters
      * @return  List of the characters
      */
-    public List<CharacterEntity> getCharacters() {
+    public List<Creature> getCharacters() {
         return characters;
     }
 
@@ -227,7 +228,7 @@ public class Cave {
      * Setter for the characters
      * @param characters The characters
      */
-    public void setCharacters(List<CharacterEntity> characters) {
+    public void setCharacters(List<Creature> characters) {
         this.characters = characters;
     }
 }

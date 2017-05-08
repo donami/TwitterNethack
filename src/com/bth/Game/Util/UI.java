@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class UI {
     private static PrintStream out = System.out;
-    static Scanner in = new Scanner(System.in);
+    public static Scanner in = new Scanner(System.in);
 
     public static void write(String text) {
         UI.out.println("\t" + text);
