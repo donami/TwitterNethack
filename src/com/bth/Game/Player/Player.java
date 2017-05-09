@@ -61,6 +61,11 @@ public class Player implements Entity {
      */
     public int setHealth(int health) {
         this.health = health;
+
+        if (this.health <= 0) {
+            this.die();
+        }
+
         return this.health;
     }
 

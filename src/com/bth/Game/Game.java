@@ -151,7 +151,7 @@ public class Game extends State {
      */
     private void handleMove(Movement movement) {
         // Check if move was success full
-        if (this.movePlayer(movement)) {
+        if (this.moveDirection(movement)) {
             UI.write(Constants.MOVED_TO.getText(), movement.getCode());
 
             // Check if player's new position is colliding with an entity
@@ -176,16 +176,10 @@ public class Game extends State {
 
         switch (dialog) {
             case ITEM_SAVE_DIALOG:
-                this.itemHandler.printItemInfo(entity);
-                boolean removeFromCave = this.itemHandler.itemSaveDialog(entity, this.player.getBackpack());
-
-                if (removeFromCave) {
-                    this.caveHandler.removeEntityFromCave(this.currentCave, this.playerPos.get('x'), this.playerPos.get('y'));
-                }
-
+                this.pickUpItem(entity);
                 break;
             case INTERACT_ENEMY:
-                this.handleInteractEnemy(entity);
+                this.interactWithCharacter(entity);
                 break;
             default:
             case DO_NOTHING:
@@ -193,7 +187,24 @@ public class Game extends State {
         }
     }
 
-    private void handleInteractEnemy(Entity entity) {
+    /**
+     * Pick up item
+     * @param entity    The item entity
+     */
+    private void pickUpItem(Entity entity) {
+        this.itemHandler.printItemInfo(entity);
+        boolean removeFromCave = this.itemHandler.itemSaveDialog(entity, this.player.getBackpack());
+
+        if (removeFromCave) {
+            this.caveHandler.removeEntityFromCave(this.currentCave, this.playerPos.get('x'), this.playerPos.get('y'));
+        }
+    }
+
+    /**
+     * Handle interaction with a creature
+     * @param entity    Creature entity
+     */
+    private void interactWithCharacter(Entity entity) {
         Creature enemy = (Creature) entity;
         Fight fight = new Fight(this.player, enemy);
 
@@ -229,24 +240,27 @@ public class Game extends State {
      * @param direction The direction to move
      * @return  True if move was successful, else false
      */
-    private boolean movePlayer(Movement direction) {
+    private boolean moveDirection(Movement direction) {
         if (!this.currentCave.validateMove(direction, this.playerPos)) {
             return false;
         }
 
+        int playerX = this.playerPos.get('x');
+        int playerY = this.playerPos.get('y');
+
         // Move the player based on direction
         switch (direction) {
             case NORTH:
-                this.setPlayerPos(this.playerPos.get('x'), this.playerPos.get('y') - 1);
+                this.setPlayerPos(playerX, playerY - 1);
                 break;
             case SOUTH:
-                this.setPlayerPos(this.playerPos.get('x'), this.playerPos.get('y') + 1);
+                this.setPlayerPos(playerX, playerY + 1);
                 break;
             case EAST:
-                this.setPlayerPos(this.playerPos.get('x') + 1, this.playerPos.get('y'));
+                this.setPlayerPos(playerX + 1, playerY);
                 break;
             case WEST:
-                this.setPlayerPos(this.playerPos.get('x') - 1, this.playerPos.get('y'));
+                this.setPlayerPos(playerX - 1, playerY);
                 break;
 
             default:
@@ -264,12 +278,33 @@ public class Game extends State {
         }
 
         // Set the first cave to current cave
-        this.currentCave = this.caveHandler.getCaves().get(0);
+
+        // Enter the first cave
+        this.enterCave(this.caveHandler.getCaves().get(0));
+    }
+
+    /**
+     * @param cave  Cave to enter
+     */
+    private void enterCave(Cave cave) {
+        // Set the current cave
+        this.setCurrentCave(cave);
+        // Load map data for the cave
         this.currentCave.loadMapData();
-
+        // Add items to the item handler
         this.itemHandler.addItems(this.currentCave.getItems());
-
+        // Initialize the player position
         this.setPlayerPos(0, 0);
+    }
+
+    /**
+     * Setter for current cave
+     * @param cave  The cave
+     * @return  Current cave
+     */
+    private Cave setCurrentCave(Cave cave) {
+        this.currentCave = cave;
+        return this.currentCave;
     }
 
     /**
@@ -299,5 +334,13 @@ public class Game extends State {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Sets the player health
+     * @param health    The new health
+     */
+    private void setHealth(int health) {
+        this.player.setHealth(health);
     }
 }

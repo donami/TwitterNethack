@@ -17,7 +17,7 @@ public class StateManager {
     }
 
     private void initialize() {
-        this.setState(new MenuState(this));
+        this.setCurrentState(new MenuState(this));
     }
 
     /**
@@ -25,7 +25,7 @@ public class StateManager {
      * @param state The state instance
      * @return  The new state
      */
-    State setState(State state) {
+    private State setCurrentState(State state) {
         this.state = state;
 
         return this.state;
@@ -38,10 +38,11 @@ public class StateManager {
     public void setState(States state) {
         switch (state) {
             case MENU:
-                this.setState(new MenuState(this));
+                this.setCurrentState(new MenuState(this));
                 break;
             case PLAY:
-                this.setState(new Game(this));
+                Game game = new Game(this);
+                this.setCurrentState(game);
                 break;
                 default:
         }
