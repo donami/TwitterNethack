@@ -1,6 +1,7 @@
 package com.bth.Game.Cave;
 
 import com.bth.Game.Character.Creature;
+import com.bth.Game.Character.Spider;
 import com.bth.Game.Item.Item;
 import com.bth.Game.Movement;
 import com.bth.Game.Util.Entity;

@@ -55,6 +55,7 @@ public abstract class Creature implements Entity {
             return "";
         }
 
+        // Randomize the attack text
         return this.damageText.get(rand.nextInt(this.damageText.size()));
     }
 
