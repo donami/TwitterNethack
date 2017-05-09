@@ -2,25 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13b59565-6853-4e71-9daf-fb267829cc66" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/bth/Game/Character/Spider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/App/StateManager.class" afterPath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/App/StateManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Cave/CaveHandler.class" afterPath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Cave/CaveHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Game$1.class" afterPath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Game$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Game.class" afterPath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Game.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Player/Player.class" afterPath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Player/Player.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Util/FileReader.class" afterPath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Util/FileReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Util/MapEntityMapper$1.class" afterPath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Util/MapEntityMapper$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Util/MapEntityMapper.class" afterPath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Util/MapEntityMapper.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/map.txt" afterPath="$PROJECT_DIR$/map.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bth/Game/Cave/CaveHandler.java" afterPath="$PROJECT_DIR$/src/com/bth/Game/Cave/CaveHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bth/Game/Character/Creature.java" afterPath="$PROJECT_DIR$/src/com/bth/Game/Character/Creature.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bth/Game/Character/Spider.java" afterPath="$PROJECT_DIR$/src/com/bth/Game/Character/Spider.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bth/Game/Character/Wizard.java" afterPath="$PROJECT_DIR$/src/com/bth/Game/Character/Wizard.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bth/Game/Game.java" afterPath="$PROJECT_DIR$/src/com/bth/Game/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bth/Game/Util/Decision.java" afterPath="$PROJECT_DIR$/src/com/bth/Game/Util/Decision.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bth/Game/Util/Dialog.java" afterPath="$PROJECT_DIR$/src/com/bth/Game/Util/Dialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bth/Game/Util/Fight.java" afterPath="$PROJECT_DIR$/src/com/bth/Game/Util/Fight.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bth/Game/Util/FileReader.java" afterPath="$PROJECT_DIR$/src/com/bth/Game/Util/FileReader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bth/Game/Util/MapEntityMapper.java" afterPath="$PROJECT_DIR$/src/com/bth/Game/Util/MapEntityMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bth/Game/Util/UI.java" afterPath="$PROJECT_DIR$/src/com/bth/Game/Util/UI.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,6 +35,58 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Creature.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Character/Creature.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/bth/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Game.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-501">
+              <caret line="204" column="7" lean-forward="true" selection-start-line="204" selection-start-column="7" selection-end-line="204" selection-end-column="7" />
+              <folding>
+                <element signature="method#initialize#0;class#Game#0" expanded="false" />
+                <element signature="method#start#0;class#Game#0" expanded="false" />
+                <element signature="method#handleOpenBackpack#0;class#Game#0" expanded="false" />
+                <element signature="method#handleMove#0;class#Game#0" expanded="false" />
+                <element signature="method#pickUpItem#0;class#Game#0" expanded="false" />
+                <element signature="method#moveDirection#0;class#Game#0" expanded="false" />
+                <element signature="method#createCaves#0;class#Game#0" expanded="false" />
+                <element signature="method#enterCave#0;class#Game#0" expanded="false" />
+                <element signature="method#setCurrentCave#0;class#Game#0" expanded="false" />
+                <element signature="method#setPlayerPos#0;class#Game#0" expanded="false" />
+                <element signature="method#pause#0;class#Game#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.puml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.puml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="88" column="9" lean-forward="true" selection-start-line="88" selection-start-column="9" selection-end-line="88" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="MapEntityMapper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Util/MapEntityMapper.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -64,26 +103,26 @@
         <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Character/Spider.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+              <caret line="8" column="64" lean-forward="true" selection-start-line="8" selection-start-column="64" selection-end-line="8" selection-end-column="64" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Wizard.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Wizard.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Character/Wizard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="41" lean-forward="true" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+            <state relative-caret-position="136">
+              <caret line="8" column="70" lean-forward="false" selection-start-line="8" selection-start-column="70" selection-end-line="8" selection-end-column="70" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Fight.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Fight.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Util/Fight.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
+            <state relative-caret-position="374">
               <caret line="53" column="54" lean-forward="false" selection-start-line="53" selection-start-column="54" selection-end-line="53" selection-end-column="54" />
               <folding>
                 <element signature="method#Fight#0;class#Fight#0" expanded="false" />
@@ -106,10 +145,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>UI.write</find>
-      <find>UI.write(</find>
-      <find>UI.write(&quot;</find>
-      <find>possib</find>
       <find>&lt;</find>
       <find>healt</find>
       <find>&gt;</find>
@@ -136,6 +171,10 @@
       <find>ItemOb</find>
       <find>notify</find>
       <find>removeo</find>
+      <find>wizar</find>
+      <find>Wizard</find>
+      <find>intera</find>
+      <find>Creature</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -150,7 +189,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/com/bth/Game/Util/Messages.java" />
-        <option value="$PROJECT_DIR$/src/com/bth/Main.java" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Util/PrinterInterface.java" />
         <option value="$PROJECT_DIR$/src/com/bth/App/State.java" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Util/Printer.java" />
@@ -158,8 +196,6 @@
         <option value="$PROJECT_DIR$/src/com/bth/Game/Character/CharacterEntity.java" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Util/Collision.java" />
         <option value="C:/Program Files/Java/jdk1.8.0_131/jre/lib/rt.jar!/sun/nio/cs/StreamDecoder.class" />
-        <option value="$PROJECT_DIR$/src/com/bth/Game/Character/Wizard.java" />
-        <option value="$PROJECT_DIR$/src/com/bth/Game/Character/Creature.java" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Cave/Cave.java" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Util/Commands.java" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Item/ItemHandler.java" />
@@ -170,13 +206,16 @@
         <option value="$PROJECT_DIR$/src/com/bth/Game/Util/Dialog.java" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Util/FileReader.java" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Util/UI.java" />
-        <option value="$PROJECT_DIR$/src/com/bth/Game/Game.java" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Util/Decision.java" />
-        <option value="$PROJECT_DIR$/test.puml" />
-        <option value="$PROJECT_DIR$/src/com/bth/Game/Character/Spider.java" />
         <option value="$PROJECT_DIR$/map.txt" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Util/MapEntityMapper.java" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Util/Fight.java" />
+        <option value="$PROJECT_DIR$/src/com/bth/Game/Game.java" />
+        <option value="$PROJECT_DIR$/src/com/bth/Game/Character/Spider.java" />
+        <option value="$PROJECT_DIR$/src/com/bth/Main.java" />
+        <option value="$PROJECT_DIR$/test.puml" />
+        <option value="$PROJECT_DIR$/src/com/bth/Game/Character/Creature.java" />
+        <option value="$PROJECT_DIR$/src/com/bth/Game/Character/Wizard.java" />
       </list>
     </option>
   </component>
@@ -837,7 +876,7 @@
       <workItem from="1494255690269" duration="17373000" />
       <workItem from="1494332697404" duration="8320000" />
       <workItem from="1494349064735" duration="217000" />
-      <workItem from="1494349301972" duration="9804000" />
+      <workItem from="1494349301972" duration="11170000" />
     </task>
     <task id="LOCAL-00001" summary="Modified to use constant messages">
       <created>1494267180341</created>
@@ -867,11 +906,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494348501311</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Code cleanup">
+      <created>1494368826208</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1494368826208</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35714000" />
+    <option name="totallyTimeSpent" value="37080000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -922,7 +968,8 @@
     <MESSAGE value="Added creatures to the game with interactions" />
     <MESSAGE value="ItemHandler now prints item info instead of returning the string" />
     <MESSAGE value="Added enter cave method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added enter cave method" />
+    <MESSAGE value="Code cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code cleanup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -935,13 +982,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/Formatter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="2492" column="21" lean-forward="false" selection-start-line="2492" selection-start-column="21" selection-end-line="2492" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Util/PrinterInterface.java" />
     <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Util/Printable.java" />
     <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Character/Creature.java">
@@ -949,19 +989,11 @@
         <state relative-caret-position="204">
           <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
           <folding>
-            <element signature="e#556#557#0" expanded="false" />
-            <element signature="e#593#594#0" expanded="false" />
-            <element signature="e#624#625#0" expanded="false" />
-            <element signature="e#718#719#0" expanded="false" />
+            <element signature="e#701#702#0" expanded="false" />
+            <element signature="e#738#739#0" expanded="false" />
+            <element signature="e#769#770#0" expanded="false" />
+            <element signature="e#863#864#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bth/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1089,14 +1121,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Character/Creature.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Item/ItemHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-153">
@@ -1196,28 +1220,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="336" column="0" lean-forward="true" selection-start-line="336" selection-start-column="0" selection-end-line="336" selection-end-column="0" />
-          <folding>
-            <element signature="method#initialize#0;class#Game#0" expanded="false" />
-            <element signature="method#start#0;class#Game#0" expanded="false" />
-            <element signature="method#handleOpenBackpack#0;class#Game#0" expanded="false" />
-            <element signature="method#handleMove#0;class#Game#0" expanded="false" />
-            <element signature="method#handleEntityCollision#0;class#Game#0" expanded="false" />
-            <element signature="method#pickUpItem#0;class#Game#0" expanded="false" />
-            <element signature="method#interactWithCharacter#0;class#Game#0" expanded="false" />
-            <element signature="method#moveDirection#0;class#Game#0" expanded="false" />
-            <element signature="method#createCaves#0;class#Game#0" expanded="false" />
-            <element signature="method#enterCave#0;class#Game#0" expanded="false" />
-            <element signature="method#setCurrentCave#0;class#Game#0" expanded="false" />
-            <element signature="method#setPlayerPos#0;class#Game#0" expanded="false" />
-            <element signature="method#pause#0;class#Game#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bth/Menu/MenuState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-110">
@@ -1250,14 +1252,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.puml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="189" column="21" lean-forward="true" selection-start-line="189" selection-start-column="21" selection-end-line="189" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1400,6 +1394,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Util/Fight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="53" column="54" lean-forward="false" selection-start-line="53" selection-start-column="54" selection-end-line="53" selection-end-column="54" />
+          <folding>
+            <element signature="method#Fight#0;class#Fight#0" expanded="false" />
+            <element signature="method#attack#0;class#Fight#0" expanded="false" />
+            <element signature="method#run#0;class#Fight#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="110" column="19" lean-forward="false" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Character/Spider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="64" lean-forward="true" selection-start-line="8" selection-start-column="64" selection-end-line="8" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Util/MapEntityMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1410,31 +1432,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Character/Spider.java">
+    <entry file="file://$PROJECT_DIR$/src/com/bth/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.puml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="88" column="9" lean-forward="true" selection-start-line="88" selection-start-column="9" selection-end-line="88" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-501">
+          <caret line="204" column="7" lean-forward="true" selection-start-line="204" selection-start-column="7" selection-end-line="204" selection-end-column="7" />
+          <folding>
+            <element signature="method#initialize#0;class#Game#0" expanded="false" />
+            <element signature="method#start#0;class#Game#0" expanded="false" />
+            <element signature="method#handleOpenBackpack#0;class#Game#0" expanded="false" />
+            <element signature="method#handleMove#0;class#Game#0" expanded="false" />
+            <element signature="method#pickUpItem#0;class#Game#0" expanded="false" />
+            <element signature="method#moveDirection#0;class#Game#0" expanded="false" />
+            <element signature="method#createCaves#0;class#Game#0" expanded="false" />
+            <element signature="method#enterCave#0;class#Game#0" expanded="false" />
+            <element signature="method#setCurrentCave#0;class#Game#0" expanded="false" />
+            <element signature="method#setPlayerPos#0;class#Game#0" expanded="false" />
+            <element signature="method#pause#0;class#Game#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Character/Creature.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Character/Wizard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="41" lean-forward="true" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+        <state relative-caret-position="136">
+          <caret line="8" column="70" lean-forward="false" selection-start-line="8" selection-start-column="70" selection-end-line="8" selection-end-column="70" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Util/Fight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="53" column="54" lean-forward="false" selection-start-line="53" selection-start-column="54" selection-end-line="53" selection-end-column="54" />
-          <folding>
-            <element signature="method#Fight#0;class#Fight#0" expanded="false" />
-            <element signature="method#attack#0;class#Fight#0" expanded="false" />
-            <element signature="method#run#0;class#Fight#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>

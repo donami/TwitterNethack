@@ -3,6 +3,9 @@ package com.bth.Game.Character;
 import com.bth.Game.Util.Collision;
 import com.bth.Game.Util.Entity;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 
@@ -11,8 +14,9 @@ public abstract class Creature implements Entity {
     protected int health;
     int damageMin;
     int damageMax;
-    String description;
-    String damageText;
+    private String description;
+    List<String> damageText;
+    private Random rand = new Random();
 
     Creature() {
         this.initialize();
@@ -23,7 +27,7 @@ public abstract class Creature implements Entity {
      */
     private void initialize() {
         this.description = "";
-        this.damageText = "";
+        this.damageText = new ArrayList<>();
     }
 
     public void takeDamage(int damage) {
@@ -43,11 +47,15 @@ public abstract class Creature implements Entity {
     }
 
     /**
-     * Get string representation of the attack event
+     * Get random string representation of the attack event
      * @return  String
      */
     public String getDamageText() {
-        return this.damageText;
+        if (this.damageText.size() <= 0) {
+            return "";
+        }
+
+        return this.damageText.get(rand.nextInt(this.damageText.size()));
     }
 
     /**
@@ -72,5 +80,19 @@ public abstract class Creature implements Entity {
 
     public Collision.Dialogs collide() {
         return Collision.Dialogs.INTERACT_ENEMY;
+    }
+
+    /**
+     * Information text about the creature
+     * @return  String
+     */
+    public String getInfo() {
+        return String.format(
+            "============ %s =========\n" +
+            "\tName:\t\t %s\n" +
+            "\tHealth:\t\t %d\n" +
+            "\tMin damage:\t %d\n" +
+            "\tMax damage:\t %d\n" +
+            "\t=============================", this.name, this.name, this.health, this.damageMin, this.damageMax);
     }
 }

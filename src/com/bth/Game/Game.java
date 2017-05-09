@@ -208,7 +208,7 @@ public class Game extends State {
         Fight fight = new Fight(this.player, enemy);
 
         UI.write("You found a %s", enemy.getName());
-        UI.write(enemy.getDescription());
+        UI.write(enemy.getInfo());
         UI.write(Constants.WHAT_TO_DO.getText());
 
         ArrayList<EventInterface> menu = new ArrayList<>();
