@@ -74,6 +74,15 @@ public class Backpack {
     }
 
     /**
+     * Check if the backpack contains specific item
+     * @param item  The item
+     * @return  True if backpack contains item, else false
+     */
+    public boolean contains(Item item) {
+        return this.items.contains(item);
+    }
+
+    /**
      * Open the backpack
      * @return  String representation of the backpack
      */

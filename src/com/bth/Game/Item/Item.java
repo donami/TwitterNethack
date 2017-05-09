@@ -101,6 +101,21 @@ public abstract class Item implements Entity, ItemInterface, Subject {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+
+        if (!Item.class.isAssignableFrom(obj.getClass())) {
+            return false;
+        }
+
+        final Item other = (Item) obj;
+
+        return this.getName().equals(other.getName());
+    }
+
+    @Override
     public void registerObserver(Observer observer) {
         observers.add(observer);
     }

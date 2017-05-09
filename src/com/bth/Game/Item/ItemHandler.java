@@ -81,8 +81,13 @@ public class ItemHandler {
                 removeFromCave = true;
                 break;
             case SAVE_ITEM:
-                backpack.addItem(item);
-                removeFromCave = true;
+                if (backpack.contains(item)) {
+                    UI.write("You already have %s in your backpack, use it before adding another", item.getName());
+                }
+                else {
+                    backpack.addItem(item);
+                    removeFromCave = true;
+                }
                 break;
             case DO_NOTHING:
                 break;
