@@ -176,7 +176,7 @@ public class Game extends State {
 
         switch (dialog) {
             case ITEM_SAVE_DIALOG:
-                UI.write(this.itemHandler.itemDialogMessage(entity));
+                this.itemHandler.printItemInfo(entity);
                 boolean removeFromCave = this.itemHandler.itemSaveDialog(entity, this.player.getBackpack());
 
                 if (removeFromCave) {

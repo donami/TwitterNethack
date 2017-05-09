@@ -5,6 +5,7 @@ import com.bth.Game.Util.Dialog;
 import com.bth.Game.Util.Entity;
 import com.bth.Game.Util.EventInterface;
 import com.bth.Game.Util.Observer.Action;
+import com.bth.Game.Util.UI;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -58,14 +59,6 @@ public class ItemHandler {
     }
 
     /**
-     * Display information about specified item
-     * @param item  The item
-     */
-    public void displayItemInfo(Item item) {
-        // TODO: 2017-05-04 implement
-    }
-
-    /**
      * Display a save dialog for specified item
      * @param entity  The item to save
      * @return  The answer
@@ -110,19 +103,20 @@ public class ItemHandler {
     }
 
     /**
-     * String representation of the item dialog message
+     * Display string representation of the item dialog message
      * @param entity    Entity
-     * @return  String
      */
-    public String[] itemDialogMessage(Entity entity) {
+    public void printItemInfo(Entity entity) {
         Item item = (Item) entity;
 
-        return new String[]{
+        String[] lines = new String[]{
             "You found a " + item.getName().toLowerCase() + "!",
             "\t" + item.getDescription(),
             "You can either use it now, or save it to your backpack to use it later",
             "What do you want to do?"
         };
+
+        UI.write(lines);
     }
 
     /**
