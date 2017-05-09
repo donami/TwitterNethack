@@ -24,7 +24,7 @@ public class Decision {
         return choice - 1;
     }
 
-    static private int printCommandMenu(ArrayList<EventInterface> menu) {
+    private static int printCommandMenu(ArrayList<EventInterface> menu) {
         for (int i = 0; i < menu.size(); i++) {
             UI.write("%d. %s", (i + 1), menu.get(i).getCode());
         }

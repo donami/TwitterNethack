@@ -6,13 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-/**
- * Created by markus on 2017-05-04.
- */
-public class FileReader {
-    FileReader() {
-    }
-
+class FileReader {
     List<String> getContents() {
         try {
             return Files.readAllLines(Paths.get("map.txt"), StandardCharsets.UTF_8);
@@ -21,5 +15,4 @@ public class FileReader {
             return null;
         }
     }
-
 }

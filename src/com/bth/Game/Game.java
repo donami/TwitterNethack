@@ -22,7 +22,6 @@ public class Game extends State {
     private Cave currentCave;
     private int numberOfCaves = 1;
     private Interpreter interpreter;
-
     private HashMap<Character, Integer> playerPos = new HashMap<>();
 
     public Game(StateManager stateManager) {

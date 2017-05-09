@@ -51,7 +51,7 @@ public class Fight {
 
 
     private void handleFight(int playerDamage, int enemyDamage) {
-        UI.write("You attack the %s and deal %d", enemy.getName(), playerDamage);
+        UI.write("You attack the %s and deal %d damage", enemy.getName(), playerDamage);
 
         this.pause(2000);
 

@@ -9,10 +9,6 @@ public class Dialog {
         this.options = menu;
     }
 
-    public void setOptions(ArrayList<EventInterface> menu) {
-        this.options = menu;
-    }
-
     private void printMenu() {
         for (int i = 0; i < this.options.size(); i++) {
             UI.write("%d. %s", (i + 1), options.get(i).getCode());
