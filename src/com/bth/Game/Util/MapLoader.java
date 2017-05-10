@@ -4,8 +4,10 @@ import com.bth.Game.Cave.Ground;
 import com.bth.Game.Cave.Rock;
 import com.bth.Game.Character.Spider;
 import com.bth.Game.Character.Wizard;
+import com.bth.Game.Item.Finish;
 import com.bth.Game.Item.Potion;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class MapLoader extends FileReader {
@@ -13,20 +15,26 @@ public class MapLoader extends FileReader {
     private int rows;
     private Entity ground;
     private Entity rock;
+    private String name;
 
     public MapLoader() {
-        this.cols = 10;
-        this.rows = 5;
+        this.cols = 20;
+        this.rows = 10;
         this.ground = new Ground();
         this.rock = new Rock();
+        this.name = "Cave";
     }
 
     /**
      * Load the map from text file and add it to the multidimensional array
      * @return  Map data
      */
-    public Entity[][] loadMap() {
-        List<String> content = this.getContents();
+    public Entity[][] loadMap(String file) {
+        String filename = file.concat(".txt");
+
+        List<String> content = this.getContents("maps/" + filename);
+
+        this.name = content.remove(0);
 
         Entity[][] entityMap = new Entity[this.rows][this.cols];
 
@@ -42,6 +50,10 @@ public class MapLoader extends FileReader {
         return entityMap;
     }
 
+    public String getName() {
+        return name;
+    }
+
     /**
      * Get the entity by the character on the map
      * @param c Character symbol
@@ -51,6 +63,9 @@ public class MapLoader extends FileReader {
         Entity entity = null;
 
         switch (c) {
+            case 'f':
+                entity = new Finish();
+                break;
             case 's':
                 entity = new Spider();
                 break;
@@ -58,6 +73,7 @@ public class MapLoader extends FileReader {
                 entity = this.ground;
                 break;
             case '|':
+            case '_':
                 entity = this.rock;
                 break;
             case 'p':

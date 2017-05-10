@@ -20,7 +20,7 @@ public class Game extends State {
     private CaveHandler caveHandler;
     private Player player;
     private Cave currentCave;
-    private int numberOfCaves = 1;
+    private String[] maps;
     private Interpreter interpreter;
     private HashMap<Character, Integer> playerPos = new HashMap<>();
 
@@ -35,6 +35,7 @@ public class Game extends State {
      * Initialize
      */
     private void initialize() {
+        this.maps = new String[]{"first_cave", "scary_dungeon"};
         this.player = new Player();
         this.caveHandler = new CaveHandler();
         this.itemHandler = new ItemHandler();
@@ -51,9 +52,6 @@ public class Game extends State {
      */
     private void start() {
         ArrayList<String> possibleMoves = this.caveHandler.getPossibleMoves(this.currentCave, this.playerPos);
-
-        UI.write("You enter a new cave.");
-        UI.write("Cave name: " + this.currentCave.getName());
 
         if (possibleMoves.isEmpty()) {
             UI.write(Constants.NO_POSSIBLE_MOVES.getText());
@@ -180,12 +178,35 @@ public class Game extends State {
             case INTERACT_ENEMY:
                 this.interactWithCharacter(entity);
                 break;
+            case FINISH_CAVE:
+                this.finishCave();
+                break;
             default:
             case DO_NOTHING:
                 break;
         }
     }
 
+    /**
+     * Handler for when player reaches the end of the cave
+     */
+    private void finishCave() {
+        // Check if there are more caves, otherwise the game is completed
+        if (this.caveHandler.getCaves().size() > 0) {
+            UI.write("- You have reached the end of the cave, but there are more caves to expore...\n\n");
+            Game.pause(2000);
+            // Enter the new cave
+            this.enterCave(this.caveHandler.getNextCave());
+        }
+        else {
+            UI.write("============ GAME COMPLETE ============");
+            UI.write("- No more caves, you have completed the game!\n\n");
+            Game.pause(2500);
+            // End the game session
+            this.endGameSession();
+        }
+    }
+    
     /**
      * Pick up item
      * @param entity    The item entity
@@ -272,14 +293,12 @@ public class Game extends State {
      * Create the caves
      */
     private void createCaves() {
-        for (int i = 0; i < this.numberOfCaves; i++) {
-            this.caveHandler.createCave(i, "First cave");
+        for (int i = 0; i < this.maps.length; i++) {
+            this.caveHandler.createCave(i, this.maps[i]);
         }
 
-        // Set the first cave to current cave
-
         // Enter the first cave
-        this.enterCave(this.caveHandler.getCaves().get(0));
+        this.enterCave(this.caveHandler.getNextCave());
     }
 
     /**
@@ -294,6 +313,11 @@ public class Game extends State {
         this.itemHandler.addItems(this.currentCave.getItems());
         // Initialize the player position
         this.setPlayerPos(0, 0);
+
+        UI.write("=============NEW CAVE============");
+        UI.write("You enter a new cave.");
+        UI.write("Cave name: " + this.currentCave.getName());
+        UI.write("=================================");
     }
 
     /**

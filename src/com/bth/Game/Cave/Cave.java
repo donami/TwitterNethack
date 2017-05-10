@@ -44,7 +44,7 @@ public class Cave {
      */
     public void loadMapData() {
         MapLoader mapLoader = new MapLoader();
-        this.mapData = mapLoader.loadMap();
+        this.mapData = mapLoader.loadMap(this.mapPath);
 
         for (Entity[] row: this.mapData) {
             for (Entity col : row) {
@@ -56,6 +56,8 @@ public class Cave {
                 }
             }
         }
+
+        this.name = mapLoader.getName();
     }
 
     /**

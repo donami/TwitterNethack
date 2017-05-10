@@ -7,9 +7,9 @@ import java.nio.file.Paths;
 import java.util.List;
 
 class FileReader {
-    List<String> getContents() {
+    List<String> getContents(String file) {
         try {
-            return Files.readAllLines(Paths.get("map.txt"), StandardCharsets.UTF_8);
+            return Files.readAllLines(Paths.get(file), StandardCharsets.UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
             return null;

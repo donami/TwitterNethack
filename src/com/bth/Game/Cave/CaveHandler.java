@@ -2,13 +2,10 @@ package com.bth.Game.Cave;
 
 import com.bth.Game.Movement;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class CaveHandler {
-    private List<Cave> caves;
+    private Queue<Cave> caves;
 
     public CaveHandler() {
         this.initialize();
@@ -23,10 +20,12 @@ public class CaveHandler {
 
     /**
      * Create a cave
+     * @param id Cave's ID
+     * @param map Cave's map file
      * @return The cave
      */
-    public Cave createCave(int id, String name) {
-        Cave cave = new Cave(id, name, "map.txt");
+    public Cave createCave(int id, String map) {
+        Cave cave = new Cave(id, "Cave", map);
         this.caves.add(cave);
         return cave;
     }
@@ -66,10 +65,18 @@ public class CaveHandler {
     }
 
     /**
+     * Get the next cave in the queue
+     * @return Next cave
+     */
+    public Cave getNextCave() {
+        return this.caves.poll();
+    }
+
+    /**
      * Getter for the caves
      * @return  The caves
      */
-    public List<Cave> getCaves() {
+    public Queue<Cave> getCaves() {
         return caves;
     }
 }

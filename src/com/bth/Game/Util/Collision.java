@@ -8,6 +8,7 @@ public class Collision {
     public enum Dialogs {
         ITEM_SAVE_DIALOG,
         INTERACT_ENEMY,
+        FINISH_CAVE,
         DO_NOTHING
     }
 
