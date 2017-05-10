@@ -48,6 +48,7 @@ public class Decision {
         menu.add(Commands.MOVE_EAST);
         menu.add(Commands.MOVE_WEST);
         menu.add(Commands.HEALTH);
+        menu.add(Commands.STATS);
         menu.add(Commands.AVAILABLE_MOVES);
         menu.add(Commands.OPEN_BACKPACK);
         menu.add(Commands.QUIT);

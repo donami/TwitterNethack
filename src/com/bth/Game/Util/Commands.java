@@ -8,6 +8,7 @@ public enum Commands implements EventInterface {
     MOVE_WEST("Move west"),
     MOVE_NORTH("Move north"),
     MOVE_SOUTH("Move south"),
+    STATS("Show stats"),
     UNKNOWN("Unknown"),
     QUIT("Quit"),
     AVAILABLE_MOVES("Moves"),

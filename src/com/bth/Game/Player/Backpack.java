@@ -36,7 +36,7 @@ public class Backpack {
      * Return a string representation of the backpack content
      * @return String   Backpack string message
      */
-    public String printBackpack() {
+    private String printBackpack() {
         StringBuilder msg = new StringBuilder();
         msg.append("\tYou open your backpack and you find the following items:\n");
 
@@ -136,6 +136,9 @@ public class Backpack {
             switch (action) {
                 case INCREASE_HEALTH:
                     Backpack.this.player.increaseHealth((int) value);
+                    break;
+                case INCREASE_DAMAGE:
+                    Backpack.this.player.increaseDamage((int) value);
                     break;
             }
         }

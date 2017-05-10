@@ -9,6 +9,7 @@ public enum Constants {
     CURRENT_HEALTH("Your current health is: %d"),
     PLAYER_DEAD("Uh-oh! You are now dead."),
     HEALTH_INCREASED_BY("Your health is increased by %d"),
+    DAMAGE_INCREASED_BY("Your damage is increased by %d"),
     ENTER_VALID_NUMBER("Please enter a valid number"),
     WHAT_TO_DO("What do you want to do?"),
     NOT_ABLE_TO_MOVE("You are not able to move in that direction");

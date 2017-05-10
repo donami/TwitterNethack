@@ -60,6 +60,15 @@ public abstract class Creature implements Entity {
     }
 
     /**
+     * Increase the creatures damage
+     * @param damage    Damage
+     */
+    void increaseDamage(int damage) {
+        this.damageMin += damage;
+        this.damageMax += damage;
+    }
+
+    /**
      * Getter for description
      * @return  Creature's description
      */

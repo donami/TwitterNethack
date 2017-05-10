@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13b59565-6853-4e71-9daf-fb267829cc66" name="Default" comment="Now supports multiple caves and loads cave name from same file as the map">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/maps/first_cave.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/maps/scary_dungeon.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/bth/Game/Item/Finish.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/map.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Cave/Cave$1.class" afterPath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Cave/Cave$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Cave/Cave.class" afterPath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Cave/Cave.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Cave/CaveHandler.class" afterPath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Cave/CaveHandler.class" />
+    <list default="true" id="13b59565-6853-4e71-9daf-fb267829cc66" name="Default" comment="Added sword item">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/bth/Game/Item/Sword.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Game$1.class" afterPath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Game$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Game.class" afterPath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Game.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Item/Item.class" afterPath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Item/Item.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Item/ItemHandler.class" afterPath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Item/ItemHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Util/Collision$Dialogs.class" afterPath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Util/Collision$Dialogs.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Util/Collision.class" afterPath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Util/Collision.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Util/FileReader.class" afterPath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Util/FileReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Util/MapLoader.class" afterPath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Util/MapLoader.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Player/Backpack$1.class" afterPath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Player/Backpack$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Player/Backpack$ItemObserver.class" afterPath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Player/Backpack$ItemObserver.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Player/Player.class" afterPath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Player/Player.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Util/Commands.class" afterPath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Util/Commands.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Util/Observer/Action.class" afterPath="$PROJECT_DIR$/out/production/TwitterNethack/com/bth/Game/Util/Observer/Action.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bth/Game/Cave/Cave.java" afterPath="$PROJECT_DIR$/src/com/bth/Game/Cave/Cave.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bth/Game/Cave/CaveHandler.java" afterPath="$PROJECT_DIR$/src/com/bth/Game/Cave/CaveHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/maps/first_cave.txt" afterPath="$PROJECT_DIR$/maps/first_cave.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bth/Game/Character/Creature.java" afterPath="$PROJECT_DIR$/src/com/bth/Game/Character/Creature.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bth/Game/Game.java" afterPath="$PROJECT_DIR$/src/com/bth/Game/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bth/Game/Util/Collision.java" afterPath="$PROJECT_DIR$/src/com/bth/Game/Util/Collision.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bth/Game/Util/FileReader.java" afterPath="$PROJECT_DIR$/src/com/bth/Game/Util/FileReader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bth/Game/Player/Backpack.java" afterPath="$PROJECT_DIR$/src/com/bth/Game/Player/Backpack.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bth/Game/Player/Player.java" afterPath="$PROJECT_DIR$/src/com/bth/Game/Player/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bth/Game/Util/Commands.java" afterPath="$PROJECT_DIR$/src/com/bth/Game/Util/Commands.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bth/Game/Util/Constants.java" afterPath="$PROJECT_DIR$/src/com/bth/Game/Util/Constants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bth/Game/Util/Decision.java" afterPath="$PROJECT_DIR$/src/com/bth/Game/Util/Decision.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bth/Game/Util/MapLoader.java" afterPath="$PROJECT_DIR$/src/com/bth/Game/Util/MapLoader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bth/Game/Util/Observer/Action.java" afterPath="$PROJECT_DIR$/src/com/bth/Game/Util/Observer/Action.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,25 +38,12 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Cave.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Cave/Cave.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="46" column="46" lean-forward="false" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
-              <folding>
-                <element signature="method#validateMove#0;class#Cave#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="37" column="61" lean-forward="false" selection-start-line="37" selection-start-column="61" selection-end-line="37" selection-end-column="61" />
+            <state relative-caret-position="230">
+              <caret line="97" column="52" lean-forward="false" selection-start-line="97" selection-start-column="52" selection-end-line="97" selection-end-column="52" />
               <folding>
-                <element signature="method#start#0;class#Game#0" expanded="false" />
                 <element signature="method#handleOpenBackpack#0;class#Game#0" expanded="false" />
                 <element signature="method#handleMove#0;class#Game#0" expanded="false" />
                 <element signature="method#handleEntityCollision#0;class#Game#0" expanded="false" />
@@ -75,40 +59,68 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="first_cave.txt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/maps/first_cave.txt">
+      <file leaf-file-name="Decision.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Util/Decision.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="20" lean-forward="true" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="scary_dungeon.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/maps/scary_dungeon.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CaveHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Cave/CaveHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="26" column="21" lean-forward="false" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+            <state relative-caret-position="340">
+              <caret line="50" column="33" lean-forward="false" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
               <folding>
-                <element signature="e#264#265#0" expanded="true" />
-                <element signature="e#311#312#0" expanded="true" />
-                <element signature="e#1548#1549#0" expanded="true" />
-                <element signature="e#1592#1593#0" expanded="true" />
-                <element signature="e#1704#1705#0" expanded="true" />
-                <element signature="e#1744#1745#0" expanded="true" />
-                <element signature="e#1851#1852#0" expanded="true" />
-                <element signature="e#1879#1880#0" expanded="true" />
+                <element signature="method#printMenu#0;class#Decision#0" expanded="false" />
+                <element signature="method#printMenu#1;class#Decision#0" expanded="false" />
+                <element signature="method#printCommandMenu#0;class#Decision#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Commands.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Util/Commands.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="27" lean-forward="true" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Potion.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Item/Potion.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+              <folding>
+                <element signature="e#517#518#0" expanded="true" />
+                <element signature="e#590#591#0" expanded="true" />
+                <element signature="e#723#724#0" expanded="true" />
+                <element signature="e#780#781#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Util/Constants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="45" lean-forward="false" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sword.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Item/Sword.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#409#410#0" expanded="true" />
+                <element signature="e#466#467#0" expanded="true" />
+                <element signature="e#491#492#0" expanded="true" />
+                <element signature="e#564#565#0" expanded="true" />
+                <element signature="e#597#598#0" expanded="true" />
+                <element signature="e#631#632#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -117,32 +129,52 @@
       <file leaf-file-name="MapLoader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Util/MapLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state relative-caret-position="385">
+              <caret line="81" column="22" lean-forward="true" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1367#1368#0" expanded="true" />
-                <element signature="e#1394#1395#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileReader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Util/FileReader.java">
+      <file leaf-file-name="Backpack.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Player/Backpack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="11" column="48" lean-forward="false" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
-              <folding />
+            <state relative-caret-position="177">
+              <caret line="37" column="7" lean-forward="true" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
+              <folding>
+                <element signature="method#Backpack#0;class#Backpack#0" expanded="false" />
+                <element signature="method#initialize#0;class#Backpack#0" expanded="false" />
+                <element signature="method#selectItemDialog#0;class#Backpack#0" expanded="false" />
+                <element signature="method#open#0;class#Backpack#0" expanded="false" />
+                <element signature="method#setOpen#0;class#Backpack#0" expanded="false" />
+                <element signature="method#addItem#0;class#Backpack#0" expanded="false" />
+                <element signature="method#removeItem#0;class#Backpack#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.puml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test.puml">
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Player/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="41" column="27" lean-forward="false" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+            <state relative-caret-position="449">
+              <caret line="89" column="46" lean-forward="false" selection-start-line="89" selection-start-column="27" selection-end-line="89" selection-end-column="46" />
+              <folding>
+                <element signature="method#initialize#0;class#Player#0" expanded="false" />
+                <element signature="method#die#0;class#Player#0" expanded="false" />
+                <element signature="method#setHealth#0;class#Player#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="first_cave.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/maps/first_cave.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -160,10 +192,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>statemanager.s</find>
-      <find>ui</find>
-      <find>UI</find>
-      <find>s</find>
       <find>setst</find>
       <find>setstate</find>
       <find>setstatein</find>
@@ -190,6 +218,10 @@
       <find>poll</find>
       <find>maplo</find>
       <find>map</find>
+      <find>show hea</find>
+      <find>inc</find>
+      <find>increa</find>
+      <find>increase</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -207,23 +239,17 @@
         <option value="$PROJECT_DIR$/src/com/bth/Game/Util/PrinterInterface.java" />
         <option value="$PROJECT_DIR$/src/com/bth/App/State.java" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Util/Printer.java" />
-        <option value="$PROJECT_DIR$/src/com/bth/Game/Util/Constants.java" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Character/CharacterEntity.java" />
         <option value="C:/Program Files/Java/jdk1.8.0_131/jre/lib/rt.jar!/sun/nio/cs/StreamDecoder.class" />
-        <option value="$PROJECT_DIR$/src/com/bth/Game/Util/Commands.java" />
         <option value="$PROJECT_DIR$/src/com/bth/Menu/MenuState.java" />
         <option value="$PROJECT_DIR$/src/com/bth/App/StateManager.java" />
-        <option value="$PROJECT_DIR$/src/com/bth/Game/Player/Player.java" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Util/Dialog.java" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Util/UI.java" />
-        <option value="$PROJECT_DIR$/src/com/bth/Game/Util/Decision.java" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Util/MapEntityMapper.java" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Util/Fight.java" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Character/Spider.java" />
         <option value="$PROJECT_DIR$/src/com/bth/Main.java" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Character/Wizard.java" />
-        <option value="$PROJECT_DIR$/src/com/bth/Game/Character/Creature.java" />
-        <option value="$PROJECT_DIR$/src/com/bth/Game/Player/Backpack.java" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Item/Item.java" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Item/ItemHandler.java" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Util/Collision.java" />
@@ -232,12 +258,20 @@
         <option value="$PROJECT_DIR$/src/com/bth/Game/Cave/CaveHandler.java" />
         <option value="$PROJECT_DIR$/map.txt" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Cave/Cave.java" />
-        <option value="$PROJECT_DIR$/test.puml" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Util/FileReader.java" />
-        <option value="$PROJECT_DIR$/src/com/bth/Game/Util/MapLoader.java" />
+        <option value="$PROJECT_DIR$/maps/scary_dungeon.txt" />
+        <option value="$PROJECT_DIR$/test.puml" />
+        <option value="$PROJECT_DIR$/src/com/bth/Game/Character/Creature.java" />
+        <option value="$PROJECT_DIR$/src/com/bth/Game/Util/Observer/Action.java" />
+        <option value="$PROJECT_DIR$/src/com/bth/Game/Util/Commands.java" />
+        <option value="$PROJECT_DIR$/src/com/bth/Game/Util/Decision.java" />
         <option value="$PROJECT_DIR$/src/com/bth/Game/Game.java" />
         <option value="$PROJECT_DIR$/maps/first_cave.txt" />
-        <option value="$PROJECT_DIR$/maps/scary_dungeon.txt" />
+        <option value="$PROJECT_DIR$/src/com/bth/Game/Util/MapLoader.java" />
+        <option value="$PROJECT_DIR$/src/com/bth/Game/Item/Sword.java" />
+        <option value="$PROJECT_DIR$/src/com/bth/Game/Player/Player.java" />
+        <option value="$PROJECT_DIR$/src/com/bth/Game/Util/Constants.java" />
+        <option value="$PROJECT_DIR$/src/com/bth/Game/Player/Backpack.java" />
       </list>
     </option>
   </component>
@@ -321,6 +355,106 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="bth" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TwitterNethack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TwitterNethack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bth" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TwitterNethack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TwitterNethack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bth" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Player" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TwitterNethack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TwitterNethack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bth" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Item" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TwitterNethack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TwitterNethack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bth" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Character" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -868,7 +1002,7 @@
       <workItem from="1494332697404" duration="8320000" />
       <workItem from="1494349064735" duration="217000" />
       <workItem from="1494349301972" duration="13211000" />
-      <workItem from="1494408567565" duration="6832000" />
+      <workItem from="1494408567565" duration="9560000" />
     </task>
     <task id="LOCAL-00001" summary="Modified to use constant messages">
       <created>1494267180341</created>
@@ -926,14 +1060,22 @@
       <option name="project" value="LOCAL" />
       <updated>1494372207380</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Now supports multiple caves and loads cave name from same file as the map">
+      <created>1494426848031</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1494426848031</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45953000" />
+    <option name="totallyTimeSpent" value="48681000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4359375" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -949,7 +1091,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39957717" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -985,7 +1127,8 @@
     <MESSAGE value="Removed MapEntityMapper, and made it possible to have multiple characters of the same type in the cave" />
     <MESSAGE value="Check for duplicates in backpack before picking up item" />
     <MESSAGE value="Now supports multiple caves and loads cave name from same file as the map" />
-    <option name="LAST_COMMIT_MESSAGE" value="Now supports multiple caves and loads cave name from same file as the map" />
+    <MESSAGE value="Added sword item" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added sword item" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -998,13 +1141,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/io/FileInputStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="218" column="23" lean-forward="false" selection-start-line="218" selection-start-column="23" selection-end-line="218" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/io/BufferedInputStream.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
@@ -1058,19 +1194,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Player/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="74" column="7" lean-forward="true" selection-start-line="74" selection-start-column="7" selection-end-line="74" selection-end-column="7" />
-          <folding>
-            <element signature="method#initialize#0;class#Player#0" expanded="false" />
-            <element signature="method#die#0;class#Player#0" expanded="false" />
-            <element signature="method#setHealth#0;class#Player#0" expanded="false" />
-            <element signature="method#increaseHealth#0;class#Player#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Util/Entity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1117,21 +1240,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-110">
           <caret line="14" column="26" lean-forward="true" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Util/Commands.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Util/Observer/Action.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-          <folding />
+          <folding>
+            <element signature="method#initialize#0;class#MenuState#0" expanded="false" />
+            <element signature="method#displayMenu#0;class#MenuState#0" expanded="false" />
+            <element signature="method#handleMenuSelection#0;class#MenuState#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1153,27 +1266,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="45" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Util/Decision.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-          <folding>
-            <element signature="method#printMenu#0;class#Decision#0" expanded="false" />
-            <element signature="method#printMenu#1;class#Decision#0" expanded="false" />
-            <element signature="method#printCommandMenu#0;class#Decision#0" expanded="false" />
-            <element signature="method#showGameDialog#0;class#Decision#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Util/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="39" lean-forward="false" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1252,16 +1344,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Character/Creature.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-47">
-          <caret line="52" column="34" lean-forward="false" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
-          <folding>
-            <element signature="method#getDamageText#0;class#Creature#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bth/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -1318,26 +1400,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Player/Backpack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="81" column="30" lean-forward="false" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="30" />
-          <folding>
-            <element signature="method#Backpack#0;class#Backpack#0" expanded="false" />
-            <element signature="method#initialize#0;class#Backpack#0" expanded="false" />
-            <element signature="method#printBackpack#0;class#Backpack#0" expanded="false" />
-            <element signature="method#selectItemDialog#0;class#Backpack#0" expanded="false" />
-            <element signature="e#2018#2019#0" expanded="false" />
-            <element signature="e#2066#2067#0" expanded="false" />
-            <element signature="method#open#0;class#Backpack#0" expanded="false" />
-            <element signature="method#setOpen#0;class#Backpack#0" expanded="false" />
-            <element signature="method#addItem#0;class#Backpack#0" expanded="false" />
-            <element signature="method#removeItem#0;class#Backpack#0" expanded="false" />
-            <element signature="class#ItemObserver#0;class#Backpack#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Item/ItemHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1003">
@@ -1354,14 +1416,6 @@
             <element signature="e#337#338#0" expanded="true" />
             <element signature="e#375#376#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Item/Potion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="29" column="35" lean-forward="true" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1429,14 +1483,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.puml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="41" column="27" lean-forward="false" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Cave/Cave.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="449">
@@ -1455,24 +1501,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Util/MapLoader.java">
+    <entry file="file://$PROJECT_DIR$/maps/scary_dungeon.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        <state relative-caret-position="119">
+          <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.puml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="171" column="45" lean-forward="false" selection-start-line="171" selection-start-column="45" selection-end-line="171" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Character/Creature.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="63" column="30" lean-forward="true" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Util/Observer/Action.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="15" lean-forward="true" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Util/Commands.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="27" lean-forward="true" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Util/Decision.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="50" column="33" lean-forward="false" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1367#1368#0" expanded="true" />
-            <element signature="e#1394#1395#0" expanded="true" />
+            <element signature="method#printMenu#0;class#Decision#0" expanded="false" />
+            <element signature="method#printMenu#1;class#Decision#0" expanded="false" />
+            <element signature="method#printCommandMenu#0;class#Decision#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="37" column="61" lean-forward="false" selection-start-line="37" selection-start-column="61" selection-end-line="37" selection-end-column="61" />
+        <state relative-caret-position="230">
+          <caret line="97" column="52" lean-forward="false" selection-start-line="97" selection-start-column="52" selection-end-line="97" selection-end-column="52" />
           <folding>
-            <element signature="method#start#0;class#Game#0" expanded="false" />
             <element signature="method#handleOpenBackpack#0;class#Game#0" expanded="false" />
             <element signature="method#handleMove#0;class#Game#0" expanded="false" />
             <element signature="method#handleEntityCollision#0;class#Game#0" expanded="false" />
@@ -1487,19 +1572,86 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/maps/scary_dungeon.txt">
+    <entry file="file://$PROJECT_DIR$/maps/first_cave.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+        <state relative-caret-position="170">
+          <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/maps/first_cave.txt">
+    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Util/MapLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="20" lean-forward="true" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+        <state relative-caret-position="385">
+          <caret line="81" column="22" lean-forward="true" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Item/Sword.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#409#410#0" expanded="true" />
+            <element signature="e#466#467#0" expanded="true" />
+            <element signature="e#491#492#0" expanded="true" />
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#597#598#0" expanded="true" />
+            <element signature="e#631#632#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Item/Potion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <element signature="e#517#518#0" expanded="true" />
+            <element signature="e#590#591#0" expanded="true" />
+            <element signature="e#723#724#0" expanded="true" />
+            <element signature="e#780#781#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Player/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="89" column="46" lean-forward="false" selection-start-line="89" selection-start-column="27" selection-end-line="89" selection-end-column="46" />
+          <folding>
+            <element signature="method#initialize#0;class#Player#0" expanded="false" />
+            <element signature="method#die#0;class#Player#0" expanded="false" />
+            <element signature="method#setHealth#0;class#Player#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Util/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="45" lean-forward="false" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bth/Game/Player/Backpack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="37" column="7" lean-forward="true" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
+          <folding>
+            <element signature="method#Backpack#0;class#Backpack#0" expanded="false" />
+            <element signature="method#initialize#0;class#Backpack#0" expanded="false" />
+            <element signature="method#selectItemDialog#0;class#Backpack#0" expanded="false" />
+            <element signature="method#open#0;class#Backpack#0" expanded="false" />
+            <element signature="method#setOpen#0;class#Backpack#0" expanded="false" />
+            <element signature="method#addItem#0;class#Backpack#0" expanded="false" />
+            <element signature="method#removeItem#0;class#Backpack#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

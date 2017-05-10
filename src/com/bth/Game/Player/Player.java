@@ -83,6 +83,16 @@ public class Player implements Entity {
     }
 
     /**
+     * Increase the player's damage
+     * @param damage    Damage
+     */
+    void increaseDamage(int damage) {
+        UI.write(Constants.DAMAGE_INCREASED_BY.getText(), damage);
+        this.minDamage += damage;
+        this.maxDamage += damage;
+    }
+
+    /**
      * Player takes damage
      * @param damage    The amount of damage
      */
@@ -101,6 +111,19 @@ public class Player implements Entity {
     public Backpack openBackpack() {
         return this.backpack.setOpen(true);
     }
+
+    public String[] stats() {
+        String health = String.format("%d/%d", this.health, 100);
+        String damage = String.format("%d-%d", this.minDamage, this.maxDamage);
+
+        return new String[]{
+            "=========STATS==========",
+            " Health:\t\t" + health,
+            " Damage:\t\t" + damage,
+            "========================",
+        };
+    }
+
 
     public Collision.Dialogs collide() {
         return Collision.Dialogs.DO_NOTHING;

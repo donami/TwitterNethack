@@ -94,6 +94,9 @@ public class Game extends State {
                     case HEALTH:
                         UI.write(Constants.CURRENT_HEALTH.getText(), this.player.getHealth());
                         break;
+                    case STATS:
+                        UI.write(this.player.stats());
+                        break;
                     case OPEN_BACKPACK:
                         this.handleOpenBackpack();
                         break;

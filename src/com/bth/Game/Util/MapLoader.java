@@ -6,6 +6,7 @@ import com.bth.Game.Character.Spider;
 import com.bth.Game.Character.Wizard;
 import com.bth.Game.Item.Finish;
 import com.bth.Game.Item.Potion;
+import com.bth.Game.Item.Sword;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -81,6 +82,9 @@ public class MapLoader extends FileReader {
                 break;
             case 'w':
                 entity = new Wizard();
+                break;
+            case '^':
+                entity = new Sword();
                 break;
         }
 

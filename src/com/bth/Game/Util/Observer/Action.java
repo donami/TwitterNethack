@@ -5,6 +5,7 @@ import com.bth.Game.Util.EventInterface;
 
 public enum Action implements EventInterface {
     INCREASE_HEALTH("Increase health", "increase health", Type.TYPE_HASVALUE),
+    INCREASE_DAMAGE("Increase damage", "increase damage", Type.TYPE_HASVALUE),
     CLOSE_BACKPACK("Close backpack", "close", Type.TYPE_DEFAULT),
     USE_ITEM("Use item", "use", Type.TYPE_HASOBJECT),
     SAVE_ITEM("Save item", "save", Type.TYPE_HASOBJECT),
