@@ -1,6 +1,7 @@
 package com.bth.App;
 
 import com.bth.Game.Game;
+import com.bth.Game.GameState;
 import com.bth.Menu.MenuState;
 
 public class StateManager {
@@ -12,7 +13,7 @@ public class StateManager {
     private Game game;
     private State state;
 
-    StateManager() {
+    public StateManager() {
         this.initialize();
     }
 
@@ -41,8 +42,8 @@ public class StateManager {
                 this.setCurrentState(new MenuState(this));
                 break;
             case PLAY:
-                Game game = new Game(this);
-                this.setCurrentState(game);
+                GameState gameState = new GameState(this);
+                this.setCurrentState(gameState);
                 break;
                 default:
         }

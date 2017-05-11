@@ -1,7 +1,5 @@
 package com.bth.Game;
 
-import com.bth.App.State;
-import com.bth.App.StateManager;
 import com.bth.Game.Cave.Cave;
 import com.bth.Game.Cave.CaveHandler;
 import com.bth.Game.Character.Creature;
@@ -13,8 +11,8 @@ import com.bth.Game.Util.Observer.Action;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Game extends State {
-    private StateManager stateManager;
+public class Game {
+    private GameState gameState;
     private ItemHandler itemHandler;
     private Collision collision;
     private CaveHandler caveHandler;
@@ -24,11 +22,10 @@ public class Game extends State {
     private Interpreter interpreter;
     private HashMap<Character, Integer> playerPos = new HashMap<>();
 
-    public Game(StateManager stateManager) {
-        this.stateManager = stateManager;
+    public Game() {
+        this.gameState = null;
 
         this.initialize();
-        this.start();
     }
 
     /**
@@ -48,75 +45,14 @@ public class Game extends State {
     }
 
     /**
-     * Start the game
-     */
-    private void start() {
-        ArrayList<String> possibleMoves = this.caveHandler.getPossibleMoves(this.currentCave, this.playerPos);
-
-        if (possibleMoves.isEmpty()) {
-            UI.write(Constants.NO_POSSIBLE_MOVES.getText());
-
-            // End the game as there is no possible moves
-            this.endGameSession();
-        }
-        else {
-            UI.write(Constants.POSSIBLE_MOVES.getText(), String.join(", ", possibleMoves));
-            Commands command;
-
-            do {
-                // Ensure that player has health, otherwise game is over
-                if (this.player.getHealth() <= 0) {
-                    this.player.die();
-                    this.endGameSession();
-                    break;
-                }
-
-                possibleMoves = this.caveHandler.getPossibleMoves(this.currentCave, this.playerPos);
-
-                command = Decision.showGameDialog();
-
-                switch (command) {
-                    case MOVE_EAST:
-                        this.handleMove(Movement.EAST);
-                        break;
-                    case MOVE_NORTH:
-                        this.handleMove(Movement.NORTH);
-                        break;
-                    case MOVE_SOUTH:
-                        this.handleMove(Movement.SOUTH);
-                        break;
-                    case MOVE_WEST:
-                        this.handleMove(Movement.WEST);
-                        break;
-                    case AVAILABLE_MOVES:
-                        UI.write(Constants.POSSIBLE_MOVES.getText(), String.join(", ", possibleMoves));
-                        break;
-                    case HEALTH:
-                        UI.write(Constants.CURRENT_HEALTH.getText(), this.player.getHealth());
-                        break;
-                    case STATS:
-                        UI.write(this.player.stats());
-                        break;
-                    case OPEN_BACKPACK:
-                        this.handleOpenBackpack();
-                        break;
-                    default:
-                }
-            } while (command != Commands.QUIT);
-        }
-
-    }
-
-    /**
      * Action handler for opening the backpack
      */
-    private void handleOpenBackpack() {
-        Action action;
+    void handleOpenBackpack() {
+        Action action = Action.DO_NOTHING;
 
         // Check if backpack is empty
         if (this.player.getBackpack().isEmpty()) {
             UI.write(Constants.BACKPACK_EMPTY.getText());
-            action = Action.DO_NOTHING;
         }
         else {
             // Open the backpack and display it's content
@@ -146,10 +82,18 @@ public class Game extends State {
     }
 
     /**
+     * Setter for interpreter
+     * @param interpreter   The interpreter
+     */
+    public void setInterpreter(Interpreter interpreter) {
+        this.interpreter = interpreter;
+    }
+
+    /**
      * Handle the player move
      * @param movement  Direction to move
      */
-    private void handleMove(Movement movement) {
+    public void handleMove(Movement movement) {
         // Check if move was success full
         if (this.moveDirection(movement)) {
             UI.write(Constants.MOVED_TO.getText(), movement.getCode());
@@ -293,14 +237,25 @@ public class Game extends State {
     }
 
     /**
+     * Set the game state
+     */
+    public void setGameState(GameState gameState) {
+        this.gameState = gameState;
+    }
+
+    /**
      * Create the caves
      */
     private void createCaves() {
         for (int i = 0; i < this.maps.length; i++) {
             this.caveHandler.createCave(i, this.maps[i]);
         }
+    }
 
-        // Enter the first cave
+    /**
+     * Enter the next cave
+     */
+    void enterNextCave() {
         this.enterCave(this.caveHandler.getNextCave());
     }
 
@@ -334,6 +289,14 @@ public class Game extends State {
     }
 
     /**
+     * Setter for player
+     * @param player    Player
+     */
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    /**
      * Set player position by absolute coords
      * @param x     X position
      * @param y     Y position
@@ -346,8 +309,8 @@ public class Game extends State {
     /**
      * End the game session
      */
-    private void endGameSession() {
-        this.stateManager.setState(StateManager.States.MENU);
+    void endGameSession() {
+        gameState.endGameSession();
     }
 
     /**
@@ -368,5 +331,21 @@ public class Game extends State {
      */
     private void setHealth(int health) {
         this.player.setHealth(health);
+    }
+
+    /**
+     * Get possible moves
+     * @return  Possible moves
+     */
+    public ArrayList<String> getPossibleMoves() {
+        return this.caveHandler.getPossibleMoves(this.currentCave, this.playerPos);
+    }
+
+    /**
+     * Getter for player
+     * @return  The player
+     */
+    public Player getPlayer() {
+        return this.player;
     }
 }
