@@ -45,6 +45,11 @@ public class ItemHandler {
         this.items.remove(item);
     }
 
+    /**
+     * Get item by code/name
+     * @param code  Code/name of item to look for
+     * @return  Item if found
+     */
     public Item getItemByCode(String code) {
         Item item = null;
 
@@ -134,5 +139,14 @@ public class ItemHandler {
 
         // Remove item after use
         this.removeItem(item);
+    }
+
+    /**
+     * Check if items contain the item
+     * @param item  The item to find
+     * @return  True if exists, else false
+     */
+    public boolean contains(Item item) {
+        return this.items.contains(item);
     }
 }
