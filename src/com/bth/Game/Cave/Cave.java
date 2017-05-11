@@ -1,7 +1,8 @@
 package com.bth.Game.Cave;
 
 import com.bth.Game.Character.Creature;
-import com.bth.Game.Character.Spider;
+import com.bth.Game.Character.EntityFactory;
+import com.bth.Game.Character.EntityType;
 import com.bth.Game.Item.Item;
 import com.bth.Game.Movement;
 import com.bth.Game.Util.Entity;
@@ -19,6 +20,7 @@ public class Cave {
     private List<Creature> characters;
     private String mapPath;
     private Entity[][] mapData;
+    private EntityFactory entityFactory;
 
     Cave(int id, String name, String mapPath) {
         this.id = id;
@@ -28,6 +30,7 @@ public class Cave {
         this.description = null;
         this.items = new LinkedList<>();
         this.characters = new LinkedList<>();
+        this.entityFactory = new EntityFactory();
 
         this.initialize();
     }
@@ -120,7 +123,7 @@ public class Cave {
      * @param y Y-coordinate
      */
     void removeEntityAtPos(int x, int y) {
-        this.mapData[y][x] = new Ground();
+        this.mapData[y][x] = this.entityFactory.getEntity(EntityType.GROUND);
     }
 
     /**

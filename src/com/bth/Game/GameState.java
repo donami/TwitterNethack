@@ -81,7 +81,9 @@ public class GameState extends State {
                         UI.write(game.getPlayer().stats());
                         break;
                     case OPEN_BACKPACK:
-                        game.handleOpenBackpack();
+                        if (!game.handleOpenBackpack()) {
+                            UI.write(Constants.BACKPACK_EMPTY.getText());
+                        }
                         break;
                     default:
                 }

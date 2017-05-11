@@ -1,9 +1,7 @@
-import com.bth.Game.Item.Item;
-import com.bth.Game.Item.ItemHandler;
-import com.bth.Game.Item.Potion;
-import com.bth.Game.Item.Sword;
+import com.bth.Game.Item.*;
 import com.bth.Game.Player.Backpack;
 import com.bth.Game.Player.Player;
+import com.bth.Game.Util.Observer.Action;
 import com.mscharhag.oleaster.runner.OleasterRunner;
 import org.junit.runner.RunWith;
 
@@ -22,6 +20,7 @@ import static org.mockito.Mockito.*;
 public class ItemHandlerSpec {
     private ItemHandler itemHandler;
     private Backpack backpack;
+    private ItemDialog mockItemDialog;
     {
         describe("itemSaveDialog", () -> {
             beforeEach(() -> {
@@ -29,42 +28,36 @@ public class ItemHandlerSpec {
                 this.backpack = new Backpack(new Player());
                 OutputStream os = new ByteArrayOutputStream();
                 System.setOut(new PrintStream(os));
+
+                this.mockItemDialog = mock(ItemDialog.class);
+
+                itemHandler.setItemDialog(mockItemDialog);
             });
 
-            it ("should return true if 1 is entered", () -> {
+            it ("should return true if [save item] is selected", () -> {
+                when(mockItemDialog.getChoice()).thenReturn(Action.SAVE_ITEM);
+
                 Item item = new Potion();
-                System.setIn(new ByteArrayInputStream("1".getBytes()));
 
                 assertEquals(itemHandler.itemSaveDialog(item, backpack), true);
             });
-/*
-            it ("should return true if 2 is entered", () -> {
+
+            it ("should return true if [use item] is selected", () -> {
+                when(mockItemDialog.getChoice()).thenReturn(Action.USE_ITEM);
+
                 Item item = new Potion();
-                System.setIn(new ByteArrayInputStream("2".getBytes()));
 
                 assertEquals(itemHandler.itemSaveDialog(item, backpack), true);
             });
 
-            it ("should return false if 3 is entered", () -> {
+            it ("should return false if [close] is selected", () -> {
+                when(mockItemDialog.getChoice()).thenReturn(Action.DO_NOTHING);
+
                 Item item = new Potion();
-                System.setIn(new ByteArrayInputStream("3".getBytes()));
 
-//                assertEquals(itemHandler.itemSaveDialog(item, backpack), false);
+                assertEquals(itemHandler.itemSaveDialog(item, backpack), false);
             });
-*/
-            /*
-            it ("should print command menu once", () -> {
-                PrinterInterface mockPrinter = mock(Decision.class);
-//                itemHandler.setPrinter(mockPrinter);
 
-                ArrayList<EventInterface> menu = new ArrayList<>();
-                menu.add(Action.SAVE_ITEM);
-                menu.add(Action.USE_ITEM);
-                menu.add(Action.DO_NOTHING);
-
-                itemHandler.itemSaveDialog(new Potion(), backpack);
-                verify(mockPrinter, times(1)).printCommandMenu(menu);
-            });*/
         });
 
         describe("useItem()", () -> {

@@ -13,6 +13,7 @@ import java.util.List;
 
 public class ItemHandler {
     private List<Item> items;
+    private ItemDialog itemDialog;
 
     public ItemHandler() {
         this.initialize();
@@ -23,6 +24,7 @@ public class ItemHandler {
      */
     private void initialize() {
         this.items = new LinkedList<>();
+        this.itemDialog = new ItemDialog();
     }
 
     /**
@@ -70,17 +72,10 @@ public class ItemHandler {
      */
     public boolean itemSaveDialog(Entity entity, Backpack backpack) {
         Item item = (Item) entity;
-
-        ArrayList<EventInterface> menu = new ArrayList<>();
-        menu.add(Action.SAVE_ITEM);
-        menu.add(Action.USE_ITEM);
-        menu.add(Action.DO_NOTHING);
-
-        Dialog dialog = new Dialog(menu);
-        int choice = dialog.getSelection();
+        Action action = this.itemDialog.getChoice();
         boolean removeFromCave = false;
 
-        switch ((Action) menu.get(choice)) {
+        switch (action) {
             case USE_ITEM:
                 this.handleUseItem(item, backpack);
                 removeFromCave = true;
@@ -148,5 +143,21 @@ public class ItemHandler {
      */
     public boolean contains(Item item) {
         return this.items.contains(item);
+    }
+
+    /**
+     * Get item dialog
+     * @return  The item dialog
+     */
+    public ItemDialog getItemDialog() {
+        return this.itemDialog;
+    }
+
+    /**
+     * Set item dialog
+     * @param itemDialog    The item dialog
+     */
+    public void setItemDialog(ItemDialog itemDialog) {
+        this.itemDialog = itemDialog;
     }
 }

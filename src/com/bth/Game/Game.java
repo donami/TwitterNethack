@@ -46,22 +46,23 @@ public class Game {
 
     /**
      * Action handler for opening the backpack
+     * @return true if backpack contains items
      */
-    void handleOpenBackpack() {
+    boolean handleOpenBackpack() {
         Action action = Action.DO_NOTHING;
 
         // Check if backpack is empty
         if (this.player.getBackpack().isEmpty()) {
-            UI.write(Constants.BACKPACK_EMPTY.getText());
+            return false;
         }
-        else {
-            // Open the backpack and display it's content
-            UI.write(this.player.getBackpack().open());
-            // Catch user input
-            String actionString = this.player.getBackpack().selectItemDialog();
-            // Get the actual action from the user input
-            action = this.interpreter.interpretString(actionString);
-        }
+
+        // Open the backpack and display it's content
+        UI.write(this.player.getBackpack().open());
+        // Catch user input
+        String actionString = this.player.getBackpack().selectItemDialog();
+        // Get the actual action from the user input
+        action = this.interpreter.interpretString(actionString);
+
 
         switch (action) {
             case USE_ITEM:
@@ -79,6 +80,8 @@ public class Game {
             case DO_NOTHING:
                 break;
         }
+
+        return true;
     }
 
     /**
@@ -207,7 +210,7 @@ public class Game {
      * @param direction The direction to move
      * @return  True if move was successful, else false
      */
-    private boolean moveDirection(Movement direction) {
+    boolean moveDirection(Movement direction) {
         if (!this.currentCave.validateMove(direction, this.playerPos)) {
             return false;
         }
@@ -241,6 +244,18 @@ public class Game {
      */
     public void setGameState(GameState gameState) {
         this.gameState = gameState;
+    }
+
+    /**
+     * Get the game state
+     * @return  The game state
+     */
+    public GameState getGameState() {
+        return this.gameState;
+    }
+
+    public void setCaveHandler(CaveHandler caveHandler) {
+        this.caveHandler = caveHandler;
     }
 
     /**
@@ -279,12 +294,52 @@ public class Game {
     }
 
     /**
+     * Getter for player position
+     * @return  The player position
+     */
+    public HashMap<Character, Integer> getPlayerPos() {
+        return this.playerPos;
+    }
+
+    /**
+     * Set player pos
+     * @param playerPos The player pos
+     */
+    public void setPlayerPos(HashMap<Character, Integer> playerPos) {
+        this.playerPos = playerPos;
+    }
+
+    /**
      * Setter for current cave
      * @param cave  The cave
      * @return  Current cave
      */
-    private Cave setCurrentCave(Cave cave) {
+    public Cave setCurrentCave(Cave cave) {
         this.currentCave = cave;
+        return this.currentCave;
+    }
+
+    /**
+     * Getter for item handler
+     * @return  The item handler
+     */
+    public ItemHandler getItemHandler() {
+        return this.itemHandler;
+    }
+
+    /**
+     * Setter for item handler
+     * @param itemHandler   The item handler
+     */
+    public void setItemHandler(ItemHandler itemHandler) {
+        this.itemHandler = itemHandler;
+    }
+
+    /**
+     * Getter for current cave
+     * @return  The current cave
+     */
+    public Cave getCurrentCave() {
         return this.currentCave;
     }
 

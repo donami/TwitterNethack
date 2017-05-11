@@ -1,14 +1,9 @@
 package com.bth.Game.Util;
 
-import com.bth.Game.Cave.Ground;
-import com.bth.Game.Cave.Rock;
-import com.bth.Game.Character.Spider;
-import com.bth.Game.Character.Wizard;
-import com.bth.Game.Item.Finish;
-import com.bth.Game.Item.Potion;
-import com.bth.Game.Item.Sword;
 
-import java.util.LinkedList;
+import com.bth.Game.Character.EntityFactory;
+import com.bth.Game.Character.EntityType;
+
 import java.util.List;
 
 public class MapLoader extends FileReader {
@@ -17,12 +12,14 @@ public class MapLoader extends FileReader {
     private Entity ground;
     private Entity rock;
     private String name;
+    private EntityFactory entityFactory;
 
     public MapLoader() {
         this.cols = 20;
         this.rows = 10;
-        this.ground = new Ground();
-        this.rock = new Rock();
+        this.entityFactory = new EntityFactory();
+        this.ground = this.entityFactory.getEntity(EntityType.GROUND);
+        this.rock = this.entityFactory.getEntity(EntityType.ROCK);
         this.name = "Cave";
     }
 
@@ -65,10 +62,10 @@ public class MapLoader extends FileReader {
 
         switch (c) {
             case 'f':
-                entity = new Finish();
+                entity = this.entityFactory.getEntity(EntityType.FINISH);
                 break;
             case 's':
-                entity = new Spider();
+                entity = this.entityFactory.getEntity(EntityType.SPIDER);
                 break;
             case '-':
                 entity = this.ground;
@@ -78,13 +75,13 @@ public class MapLoader extends FileReader {
                 entity = this.rock;
                 break;
             case 'p':
-                entity = new Potion();
+                entity = this.entityFactory.getEntity(EntityType.POTION);
                 break;
             case 'w':
-                entity = new Wizard();
+                entity = this.entityFactory.getEntity(EntityType.WIZARD);
                 break;
             case '^':
-                entity = new Sword();
+                entity = this.entityFactory.getEntity(EntityType.SWORD);
                 break;
         }
 

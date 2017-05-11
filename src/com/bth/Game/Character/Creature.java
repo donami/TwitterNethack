@@ -68,6 +68,14 @@ public abstract class Creature implements Entity {
         this.damageMax += damage;
     }
 
+    public int getDamageMin() {
+        return this.damageMin;
+    }
+
+    public int getDamageMax() {
+        return this.damageMax;
+    }
+
     /**
      * Getter for description
      * @return  Creature's description
@@ -93,6 +101,14 @@ public abstract class Creature implements Entity {
     }
 
     /**
+     * Setter for damage text
+     * @param damageText    List of damage texts
+     */
+    public void setDamageText(List<String> damageText) {
+        this.damageText = damageText;
+    }
+
+    /**
      * Information text about the creature
      * @return  String
      */
@@ -104,5 +120,13 @@ public abstract class Creature implements Entity {
             "\tMin damage:\t %d\n" +
             "\tMax damage:\t %d\n" +
             "\t=============================", this.name, this.name, this.health, this.damageMin, this.damageMax);
+    }
+
+    /**
+     * Setter for health
+     * @param health    The health
+     */
+    public void setHealth(int health) {
+        this.health = health;
     }
 }
