@@ -99,18 +99,18 @@ public class Game {
     public void handleMove(Movement movement) {
         // Check if move was success full
         if (this.moveDirection(movement)) {
-            UI.write(Constants.MOVED_TO.getText(), movement.getCode());
+            UI.info(Constants.MOVED_TO.getText(), movement.getCode());
 
             // Check if player's new position is colliding with an entity
             this.handleEntityCollision();
 
         } else {
-            UI.write(Constants.NOT_ABLE_TO_MOVE.getText());
+            UI.info(Constants.NOT_ABLE_TO_MOVE.getText());
         }
 
         if (this.player.isAlive()) {
             ArrayList<String> possibleMoves = this.caveHandler.getPossibleMoves(this.currentCave, this.playerPos);
-            UI.write(Constants.POSSIBLE_MOVES.getText(), String.join(", ", possibleMoves));
+            UI.info(Constants.POSSIBLE_MOVES.getText(), String.join(", ", possibleMoves));
         }
     }
 
@@ -143,14 +143,14 @@ public class Game {
     private void finishCave() {
         // Check if there are more caves, otherwise the game is completed
         if (this.caveHandler.getCaves().size() > 0) {
-            UI.write("- You have reached the end of the cave, but there are more caves to expore...\n\n");
+            UI.header("- You have reached the end of the cave, but there are more caves to expore...\n\n");
             Game.pause(2000);
             // Enter the new cave
             this.enterCave(this.caveHandler.getNextCave());
         }
         else {
-            UI.write("============ GAME COMPLETE ============");
-            UI.write("- No more caves, you have completed the game!\n\n");
+            UI.header("============ GAME COMPLETE ============");
+            UI.header("- No more caves, you have completed the game!\n\n");
             Game.pause(2500);
             // End the game session
             this.endGameSession();
@@ -178,9 +178,9 @@ public class Game {
         Creature enemy = (Creature) entity;
         Fight fight = new Fight(this.player, enemy);
 
-        UI.write("You found a %s", enemy.getName());
-        UI.write(enemy.getInfo());
-        UI.write(Constants.WHAT_TO_DO.getText());
+        UI.info("You found a %s", enemy.getName());
+        UI.info(enemy.getInfo());
+        UI.question(Constants.WHAT_TO_DO.getText());
 
         ArrayList<EventInterface> menu = new ArrayList<>();
         menu.add(Commands.FIGHT);
@@ -287,10 +287,10 @@ public class Game {
         // Initialize the player position
         this.setPlayerPos(0, 0);
 
-        UI.write("=============NEW CAVE============");
-        UI.write("You enter a new cave.");
-        UI.write("Cave name: " + this.currentCave.getName());
-        UI.write("=================================");
+        UI.header("=============NEW CAVE============");
+        UI.header("You enter a new cave.");
+        UI.header("Cave name: " + this.currentCave.getName());
+        UI.header("=================================");
     }
 
     /**

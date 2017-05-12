@@ -19,7 +19,7 @@ public class Fight {
      */
     public void attack() {
         // Attack
-        UI.write("========== FIGHT ==========");
+        UI.header("========== FIGHT ==========");
 
         // Loop fight until one is dead
         while (player.isAlive() && enemy.isAlive()) {
@@ -27,7 +27,7 @@ public class Fight {
         }
 
         if (player.isAlive()) {
-            UI.write("======= FIGHT ENDED =======");
+            UI.header("======= FIGHT ENDED =======");
         }
     }
 
@@ -37,21 +37,21 @@ public class Fight {
     public void run() {
         int random = ThreadLocalRandom.current().nextInt(1, 100);
 
-        UI.write("You attempt to run away from the %s...", this.enemy.getName());
+        UI.positive("You attempt to run away from the %s...", this.enemy.getName());
         this.pause(2000);
 
         if (random > 50) {
-            UI.write("You manage to run away");
+            UI.info("You manage to run away");
         }
         else {
-            UI.write("Ahhhh... %s was to fast and caught you. You have no options rather than to fight", this.enemy.getName());
+            UI.info("Ahhhh... %s was to fast and caught you. You have no options rather than to fight", this.enemy.getName());
             this.attack();
         }
     }
 
 
     private void handleFight(int playerDamage, int enemyDamage) {
-        UI.write("You attack the %s and deal %d damage", enemy.getName(), playerDamage);
+        UI.positive("You attack the %s and deal %d damage", enemy.getName(), playerDamage);
 
         this.pause(2000);
 
@@ -59,10 +59,10 @@ public class Fight {
         enemy.takeDamage(playerDamage);
 
         if (enemy.isAlive()) {
-            UI.write("%s now has %d health", enemy.getName(), enemy.getHealth());
+            UI.info("%s now has %d health", enemy.getName(), enemy.getHealth());
         }
         else {
-            UI.write("Phew... You killed %s", enemy.getName());
+            UI.info("Phew... You killed %s", enemy.getName());
             this.pause(1500);
             return;
         }
@@ -71,13 +71,13 @@ public class Fight {
 
 
         // Enemy attacks player
-        UI.write(enemy.getDamageText(), enemy.getName(), enemyDamage);
+        UI.warning(enemy.getDamageText(), enemy.getName(), enemyDamage);
 
         this.pause(1000);
 
         // Player takes damage
         player.takeDamage(enemyDamage);
-        UI.write("You have %d health left", player.getHealth());
+        UI.info("You have %d health left", player.getHealth());
 
         this.pause(2000);
     }

@@ -4,20 +4,20 @@ import java.util.*;
 
 public class Decision {
     public static int printMenu(String question, ArrayList<String> menu) {
-        UI.write(question);
+        UI.positive(question);
 
         return Decision.printMenu(menu);
     }
 
     private static int printMenu(ArrayList<String> menu) {
         for (int i = 0; i < menu.size(); i++) {
-            UI.write("%d. %s", (i + 1), menu.get(i));
+            UI.info("%d. %s", (i + 1), menu.get(i));
         }
 
         int choice = UI.in.nextInt();
 
         while (choice < 1 || choice > menu.size()) {
-            UI.write(Constants.ENTER_VALID_NUMBER.getText());
+            UI.info(Constants.ENTER_VALID_NUMBER.getText());
             choice = UI.in.nextInt();
         }
 
@@ -26,13 +26,13 @@ public class Decision {
 
     private static int printCommandMenu(ArrayList<EventInterface> menu) {
         for (int i = 0; i < menu.size(); i++) {
-            UI.write("%d. %s", (i + 1), menu.get(i).getCode());
+            UI.info("%d. %s", (i + 1), menu.get(i).getCode());
         }
 
         int choice = UI.in.nextInt();
 
         while (choice < 1 || choice > menu.size()) {
-            UI.write(Constants.ENTER_VALID_NUMBER.getText());
+            UI.info(Constants.ENTER_VALID_NUMBER.getText());
             choice = UI.in.nextInt();
         }
 
@@ -40,7 +40,7 @@ public class Decision {
     }
 
     public static Commands showGameDialog() {
-        UI.write(Constants.WHAT_TO_DO.getText());
+        UI.question(Constants.WHAT_TO_DO.getText());
 
         ArrayList<EventInterface> menu = new ArrayList<>();
         menu.add(Commands.MOVE_NORTH);

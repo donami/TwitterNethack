@@ -114,14 +114,19 @@ public class ItemHandler {
     public void printItemInfo(Entity entity) {
         Item item = (Item) entity;
 
-        String[] lines = new String[]{
-            "You found a " + item.getName().toLowerCase() + "!",
-            "\t" + item.getDescription(),
-            "You can either use it now, or save it to your backpack to use it later",
-            "What do you want to do?"
-        };
+//        String[] lines = new String[]{
+//            "You found a " + item.getName().toLowerCase() + "!",
+//            "\t" + item.getDescription(),
+//            "You can either use it now, or save it to your backpack to use it later",
+//            "What do you want to do?"
+//        };
 
-        UI.write(lines);
+        UI.positive("You found a " + item.getName().toLowerCase() + "!");
+        UI.positive("\t" + item.getDescription());
+        UI.positive("You can either use it now, or save it to your backpack to use it later");
+        UI.question("What do you want to do?");
+
+//        UI.write(lines);
     }
 
     /**
